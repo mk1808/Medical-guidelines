@@ -8,6 +8,7 @@ class MedGuidelinesApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// Default test method
 	}
 
 }
