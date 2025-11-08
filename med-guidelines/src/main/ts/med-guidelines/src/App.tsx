@@ -3,9 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.scss'
 import { Button, HStack } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 
 function App() {
   const [count, setCount] = useState(0)
+  const { t } = useTranslation();
 
   return (
     <>
@@ -30,10 +32,13 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <HStack>
-      <Button>Click me</Button>
-      <Button>Click me</Button>
-      <h1>my color</h1>
-    </HStack>
+        <Button>Click me</Button>
+        <Button>Click me</Button>
+        <h1>my color</h1>
+
+
+        <h1>{t('Welcome to React')}</h1>
+      </HStack>
     </>
   )
 }
