@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './App.scss'
 import { Button, HStack } from '@chakra-ui/react'
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
       <HStack>
       <Button>Click me</Button>
       <Button>Click me</Button>
+      <h1>my color</h1>
     </HStack>
     </>
   )
