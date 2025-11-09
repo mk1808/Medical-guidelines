@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
+import i18n from '../i18n';
 import { RouterProvider } from 'react-router'
 import AppRoutes from './router/AppRouter'
 
@@ -27,6 +28,8 @@ function App() {
     <>
       <RouterProvider router={AppRoutes} />,
       <div>
+        translation {t('welcome')}
+        translation1 {i18n.t("welcome")}
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
