@@ -16,6 +16,8 @@ import {
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
+import { RouterProvider } from 'react-router'
+import AppRoutes from './router/AppRouter'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <>
+      <RouterProvider router={AppRoutes} />,
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
