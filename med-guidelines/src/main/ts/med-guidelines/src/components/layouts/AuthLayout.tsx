@@ -1,6 +1,6 @@
 import { type JSX, type ReactNode } from "react";
 import Footer from "../ui/Footer";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 interface AuthLayoutProps {
     children: ReactNode
 }
@@ -8,7 +8,11 @@ interface AuthLayoutProps {
 const AuthLayout = ({ children }: AuthLayoutProps): JSX.Element => (
     <>
         <Box minHeight={"calc(100vh - 250px)"}>
-            {children}
+            <Box h="100%" pt="80px">
+                <Flex justify="center" align="center" h="100%">
+                    {children}
+                </Flex>
+            </Box>
         </Box>
         <Footer />
     </>
