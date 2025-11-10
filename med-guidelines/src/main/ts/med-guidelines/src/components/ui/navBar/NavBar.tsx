@@ -10,7 +10,7 @@ const NavBar = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
-        <Box borderBottomWidth="1px" width="full" borderColor="accent" marginBottom="40px" marginTop="10px" paddingLeft="40px" paddingRight="10px">
+        <Box borderBottomWidth="1px" width="full" borderColor="accent" marginBottom="40px" paddingTop="10px" paddingLeft="40px" paddingRight="10px">
                 <Flex gap="4">
                     <Box marginEnd="auto">
                         <Logo />
