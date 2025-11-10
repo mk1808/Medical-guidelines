@@ -18,6 +18,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 import i18n from '../../i18n';
+import { MgHeading, MgText } from "@/components/ui";
 
 
 const TestPage = (): JSX.Element => {
@@ -26,6 +27,15 @@ const TestPage = (): JSX.Element => {
 
     return (
         <div>
+            <MgHeading text={t('welcome')} size='sm' />
+            <MgHeading text={t('welcome')} size='md' />
+            <MgHeading text={t('welcome')} size='lg' />
+            <MgHeading text={t('welcome')} />
+
+            <MgText text={t('welcome')} size='sm' />
+            <MgText text={t('welcome')} size='md' />
+            <MgText text={t('welcome')} size='lg' />
+            <MgText text={t('welcome')} />
             <div>
                 translation {t('welcome')}
                 translation1 {i18n.t("welcome")}
