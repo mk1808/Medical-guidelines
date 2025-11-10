@@ -2,5 +2,8 @@
   "welcome": "Witaj w React + Vite + i18n!",
   "logout": "Wyloguj",
   "flowList": "Dostępne Flow",
-  "treatmentHistory": "Historia leczenia"
+  "treatmentHistory": "Historia leczenia",
+  "contact": "Kontakt",
+  "subpages": "Podstrony",
+  "iimo":"International Institute for Molecular Oncology"
 }
