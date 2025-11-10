@@ -20,6 +20,7 @@ import i18n from '../i18n';
 import { RouterProvider } from 'react-router'
 import AppRoutes from './router/AppRouter'
 import Footer from '@/components/ui/Footer'
+import { MgHeading, MgText } from '@/components/ui'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,16 @@ function App() {
   return (
     <>
       <RouterProvider router={AppRoutes} />,
+      <MgHeading text={t('welcome')} size='sm' />
+      <MgHeading text={t('welcome')} size='md' />
+      <MgHeading text={t('welcome')} size='lg' />
+      <MgHeading text={t('welcome')} />
+
+      <MgText text={t('welcome')} size='sm' />
+      <MgText text={t('welcome')} size='md' />
+      <MgText text={t('welcome')} size='lg' />
+      <MgText text={t('welcome')} />
+      <br />
       <div>
         translation {t('welcome')}
         translation1 {i18n.t("welcome")}
