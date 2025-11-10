@@ -20,7 +20,12 @@ import {
 import { useTranslation } from 'react-i18next'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 import i18n from '../../i18n';
-import { MgHeading, MgText, MgDataList } from "@/components/ui";
+import {
+    MgHeading,
+    MgText,
+    MgDataList,
+    MgAccordion
+} from "@/components/ui";
 
 
 const TestPage = (): JSX.Element => {
@@ -49,6 +54,10 @@ const TestPage = (): JSX.Element => {
 
             <Box marginY="50px">
                 <MgDataList items={items} />
+            </Box>
+
+            <Box marginY="50px">
+                <MgAccordion items={items} />
             </Box>
 
             <div>
