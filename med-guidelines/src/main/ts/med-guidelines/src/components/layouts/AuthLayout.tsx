@@ -7,13 +7,9 @@ interface AuthLayoutProps {
 
 const AuthLayout = ({ children }: AuthLayoutProps): JSX.Element => (
     <>
-        <Box minHeight={"calc(100vh - 250px)"}>
-            <Box h="100%" pt="80px">
-                <Flex justify="center" align="center" h="100%">
-                    {children}
-                </Flex>
-            </Box>
-        </Box>
+        <Flex justify="center" align="center" minHeight={"calc(100vh - 250px)"}>
+            {children}
+        </Flex>
         <Footer />
     </>
 );
