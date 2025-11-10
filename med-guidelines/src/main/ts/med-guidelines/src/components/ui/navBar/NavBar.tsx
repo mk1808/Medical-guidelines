@@ -4,7 +4,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import MgLink from "./MgLink";
 import { useTranslation } from "react-i18next";
 import LoggedUser from "./LoggedUser";
-import { Logo } from "./Logo";
+import Logo from "./Logo";
 
 const NavBar = (): JSX.Element => {
     const { t } = useTranslation();

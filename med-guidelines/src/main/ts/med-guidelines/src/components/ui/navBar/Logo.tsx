@@ -1,5 +1,3 @@
-"use client";
-
 import { Image } from "@chakra-ui/react";
 import { NavLink } from "react-router";
 
@@ -15,4 +13,5 @@ export const Logo = () => {
     );
 };
 
+export default Logo;
 

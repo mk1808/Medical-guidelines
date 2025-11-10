@@ -27,7 +27,7 @@ const LoggedUser = (): JSX.Element => {
                 <Portal>
                     <Menu.Positioner colorPalette="primary">
                         <Menu.Content>
-                            <Menu.Item value="new-txt">{t("logout")}</Menu.Item>
+                            <Menu.Item value="logout">{t("logout")}</Menu.Item>
                         </Menu.Content>
                     </Menu.Positioner>
                 </Portal>
