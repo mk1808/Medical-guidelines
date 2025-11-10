@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 
 interface RegistrationPageProps {
@@ -5,10 +6,10 @@ interface RegistrationPageProps {
 }
 
 const RegistrationPage = ({ placeholder }: RegistrationPageProps): JSX.Element => (
-    <div>
+    <Box>
         <h1>RegistrationPage component</h1>
         {placeholder}
-    </div>
+    </Box>
 );
 
 export default RegistrationPage;
