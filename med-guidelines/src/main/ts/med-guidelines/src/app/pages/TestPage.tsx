@@ -20,8 +20,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 import i18n from '../../i18n';
-import { MgHeading, MgText } from "@/components/ui";
-import MgDataList from "@/components/ui/MgDataList";
+import { MgHeading, MgText, MgDataList } from "@/components/ui";
 
 
 const TestPage = (): JSX.Element => {
