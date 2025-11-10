@@ -13,6 +13,7 @@ import StepSummaryPage from "../pages/app/newFlow/StepSummaryPage";
 import FlowListPage from "../pages/app/fillFlow/FlowListPage";
 import FillStepPage from "../pages/app/fillFlow/FillStepPage";
 import ProposedTreatmentPage from "../pages/app/fillFlow/ProposedTreatmentPage";
+import TestPage from "../pages/TestPage";
 
 const AppRoutes = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const AppRoutes = createBrowserRouter([
     {
         path: "/proposedTreatment",
         Component: ProposedTreatmentPage,
+    },
+    {
+        path: "/test",
+        Component: TestPage,
     },
     {
         path: "*",
