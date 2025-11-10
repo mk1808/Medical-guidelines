@@ -14,9 +14,11 @@ const MgLink = ({ title, path, isButton = true, isExternal = false }: MgLinkProp
     return isButton ? renderForButton() : renderForLink();
 
     function renderForButton() {
-        return (<NavLink to={path} end>
-            {({ isActive }) => renderButton(isActive)}
-        </NavLink>)
+        return (
+            <NavLink to={path} end>
+                {({ isActive }) => renderButton(isActive)}
+            </NavLink>
+        )
     }
 
     function renderForLink() {
@@ -31,9 +33,7 @@ const MgLink = ({ title, path, isButton = true, isExternal = false }: MgLinkProp
         if (isActive) {
             return <Button variant="plain" colorPalette={"accent"} size="lg"> {title} </Button>
         }
-        return (
-            <Button variant="ghost" colorPalette={"primary"} size="lg"> {title} </Button>
-        );
+        return <Button variant="ghost" colorPalette={"primary"} size="lg"> {title} </Button>
     }
 };
 

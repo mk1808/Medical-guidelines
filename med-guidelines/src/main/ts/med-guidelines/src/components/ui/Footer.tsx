@@ -8,16 +8,14 @@ const Footer = (): JSX.Element => {
     const year: number = useMemo(() => new Date().getFullYear(), []);
 
     return (
-        <div>
-            <FooterBox>
-                {renderFooterContent()}
-            </FooterBox>
+        <Box>
+            {renderFooterBox(renderFooterContent())}
             <Box background="secondary.50" width="100%" height="50px" padding="4" >
                 <Center>
                     <Text>{t("iimo")} &#169; {year}</Text>
                 </Center>
             </Box>
-        </div>
+        </Box>
     )
 
     function renderFooterContent() {
@@ -35,18 +33,18 @@ const Footer = (): JSX.Element => {
             </>
         )
     }
-}
 
-const FooterBox = ({ children }: { children: ReactNode }): JSX.Element => {
-    return (
-        <Box background="primary" width="100%" height="200px" padding="4" color="white">
-            <Flex direction="column" gap="8">
-                <Flex gap="4" justify="flex-end">
-                    {children}
+    function renderFooterBox(children: ReactNode) {
+        return (
+            <Box background="primary" width="100%" height="200px" padding="4" color="white">
+                <Flex direction="column" gap="8">
+                    <Flex gap="4" justify="flex-end">
+                        {children}
+                    </Flex>
                 </Flex>
-            </Flex>
-        </Box>
-    )
+            </Box>
+        )
+    }
 }
 
 export default Footer;

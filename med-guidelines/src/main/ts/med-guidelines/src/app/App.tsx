@@ -145,7 +145,7 @@ function App() {
           Manage your tasks for freelancers
         </Tabs.Content>
       </Tabs.Root>
-      <Footer></Footer>
+      <Footer/>
     </>
   )
 }
