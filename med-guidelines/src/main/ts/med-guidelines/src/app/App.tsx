@@ -19,6 +19,7 @@ import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 import i18n from '../i18n';
 import { RouterProvider } from 'react-router'
 import AppRoutes from './router/AppRouter'
+import Footer from '@/components/ui/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -144,6 +145,7 @@ function App() {
           Manage your tasks for freelancers
         </Tabs.Content>
       </Tabs.Root>
+      <Footer></Footer>
     </>
   )
 }
