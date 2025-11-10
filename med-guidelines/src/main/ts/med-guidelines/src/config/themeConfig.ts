@@ -1,7 +1,7 @@
 import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
 const config = defineConfig({
-    strictTokens: true,
+    strictTokens: false,
     theme: {
         tokens: {
             colors: {
@@ -54,6 +54,7 @@ const config = defineConfig({
                 bg: {
                     DEFAULT: { value: "{colors.primary.50}" },
                     panel: { value: "{colors.primary.50}" },
+                    emphasized: { value: "{colors.primary.200}" },
                 },
                 fg: { value: "{colors.primary.950}" },
                 primary: {
