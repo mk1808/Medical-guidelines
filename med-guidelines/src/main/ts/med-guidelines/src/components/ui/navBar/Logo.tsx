@@ -1,7 +1,7 @@
 import { Image } from "@chakra-ui/react";
 import { NavLink } from "react-router";
 
-export const Logo = () => {
+const Logo = () => {
     return (
         <NavLink to="/" end>
             <Image
