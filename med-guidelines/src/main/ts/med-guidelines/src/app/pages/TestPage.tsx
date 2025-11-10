@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 import i18n from '../../i18n';
 import { MgHeading, MgText } from "@/components/ui";
+import MgCard from "@/components/ui/MgCard";
 
 
 const TestPage = (): JSX.Element => {
@@ -153,6 +154,7 @@ const TestPage = (): JSX.Element => {
                     Manage your tasks for freelancers
                 </Tabs.Content>
             </Tabs.Root>
+            <MgCard text={""} >a</MgCard>
         </div>
     )
 };
