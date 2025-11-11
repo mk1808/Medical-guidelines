@@ -9,8 +9,11 @@ interface MgTableProps {
 }
 
 export const MgTable = ({ items = [] }: MgTableProps): JSX.Element => {
-    const columns = [{ name: "Product", key: "name", isAlignEnd: false }, { name: "Category", key: "category", isAlignEnd: false }, { name: "Price", key: "price", isAlignEnd: true },
-    { name: "Info", key: "info", isAlignEnd: true, render: () => <Button>Info</Button> }
+    const columns = [
+        { name: "Product", key: "name", isAlignEnd: false },
+        { name: "Category", key: "category", isAlignEnd: false },
+        { name: "Price", key: "price", isAlignEnd: true },
+        { name: "Info", key: "info", isAlignEnd: true, render: () => <Button>Info</Button> }
     ]
     const items1 = [
         { id: 1, name: "Laptop", category: "Electronics", price: 999.99 },
@@ -24,7 +27,8 @@ export const MgTable = ({ items = [] }: MgTableProps): JSX.Element => {
         if (col.render != null) {
             return col.render()
         }
-        return renderCell(item, col);
+        type Key = keyof typeof col.key;
+        return item[col.key as Key]
     }
 
     return (
@@ -32,8 +36,6 @@ export const MgTable = ({ items = [] }: MgTableProps): JSX.Element => {
             {renderTable()}
         </Box>
     );
-
-
 
     function renderTable() {
         return (
@@ -46,7 +48,7 @@ export const MgTable = ({ items = [] }: MgTableProps): JSX.Element => {
                 <Table.Body>
                     {items1.map((item) => (
                         <Table.Row key={item.id}>
-                            {columns.map((col: any) => getCellContent(item, col))}
+                            {columns.map((col: any) => renderCell(item, col))}
                         </Table.Row>
                     ))}
                 </Table.Body>
@@ -59,16 +61,16 @@ export const MgTable = ({ items = [] }: MgTableProps): JSX.Element => {
     }
 
     function renderCell(item, col: any) {
-        type Key = keyof typeof col.key;
-        const value = item[col.key as Key]
-        return <Table.Cell textAlign={col.isAlignEnd ? "end" : ""} >
-            
-            {value}
-            
+        return (
+            <Table.Cell textAlign={col.isAlignEnd ? "end" : ""} >
+                {getCellContent(item, col)}
             </Table.Cell>
+        )
     }
-
-
 }
 
 export default MgTable;
+
+//TODO: add onclick through props, add items and columns as props, add align field in columns object - insteadOf isAlignEnd
+// Table.Root size="lg" - pass this as props, lg is default
+// move box wrapper outside
