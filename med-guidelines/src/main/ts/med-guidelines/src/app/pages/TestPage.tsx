@@ -32,9 +32,17 @@ const TestPage = (): JSX.Element => {
     const [count, setCount] = useState(0)
     const { t } = useTranslation();
 
-    const items = [
+    const dataListItems = [
         { label: "First Name", value: "Jassie" },
         { label: "Last Name", value: "Bhatia" },
+        { label: "Email", value: "jassie@jassie.dev" },
+        { label: "Phone", value: "1234567890" },
+        { label: "Address", value: "1234 Main St, Anytown, USA" },
+    ];
+
+    const accordionItems = [
+        { label: "First Name", value: "Jassie" },
+        { label: "Last Name", value: <MgDataList items={dataListItems} /> },
         { label: "Email", value: "jassie@jassie.dev" },
         { label: "Phone", value: "1234567890" },
         { label: "Address", value: "1234 Main St, Anytown, USA" },
@@ -53,11 +61,11 @@ const TestPage = (): JSX.Element => {
             <MgText text={t('welcome')} />
 
             <Box marginY="50px">
-                <MgDataList items={items} />
+                <MgDataList items={dataListItems} />
             </Box>
 
             <Box marginY="50px">
-                <MgAccordion items={items} />
+                <MgAccordion items={accordionItems} />
             </Box>
 
             <div>

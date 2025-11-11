@@ -1,8 +1,13 @@
 import { DataList } from "@chakra-ui/react";
 import { type JSX } from "react";
 
+interface ItemType {
+    label: string,
+    value: string
+}
+
 interface MgDataListProps {
-    items?: { label: string, value: string }[];
+    items?: ItemType[];
 }
 
 export const MgDataList = ({ items = [] }: MgDataListProps): JSX.Element => {
