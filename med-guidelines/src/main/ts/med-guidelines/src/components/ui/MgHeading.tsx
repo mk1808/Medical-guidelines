@@ -4,9 +4,10 @@ import { useMemo, type JSX } from "react";
 interface MgHeadingProps {
     text: string;
     size?: "sm" | "md" | "lg";
+    firstUppercase?: boolean
 }
 
-export const MgHeading = ({ text, size = "md" }: MgHeadingProps): JSX.Element => {
+export const MgHeading = ({ text, size = "md", firstUppercase = false }: MgHeadingProps): JSX.Element => {
 
     const headingSize = useMemo(getHeadingSize, [size]);
 
@@ -20,7 +21,7 @@ export const MgHeading = ({ text, size = "md" }: MgHeadingProps): JSX.Element =>
     }
 
     return (
-        <Heading size={headingSize}>{text}</Heading>
+        <Heading size={headingSize} className={firstUppercase ? "first-letter-upperrcase" : ""}>{text}</Heading>
     );
 }
 
