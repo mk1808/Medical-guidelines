@@ -56,6 +56,7 @@ const config = defineConfig({
                     panel: { value: "{colors.primary.50}" },
                     emphasized: { value: "{colors.primary.200}" },
                     subtle: { value: "{colors.bg}" },
+                    muted: { value: "{colors.primary.100}" },
                 },
                 fg: { value: "{colors.primary.950}" },
                 primary: {
