@@ -7,3 +7,9 @@ export interface ActionButtonProps {
     colorPalette?: string;
     toLeft?: boolean
 }
+
+export interface SelectValueProps<T> {
+    label: string;
+    key: string;
+    value: T;
+}
