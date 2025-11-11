@@ -1,4 +1,4 @@
-import { type JSX, type ReactNode } from "react";
+import { type JSX } from "react";
 import { useState } from 'react'
 import reactLogo from './../../assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -29,7 +29,7 @@ import {
     MgCard,
     MgTable
 } from "@/components/ui";
-import { Edit } from "lucide-react";
+import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
 
 
@@ -207,19 +207,21 @@ const TestPage = (): JSX.Element => {
                     Manage your tasks for freelancers
                 </Tabs.Content>
             </Tabs.Root>
-            {renderHeading()}
+            {renderCard()}
             {renderTable()}
         </div>
     )
 
-    function renderHeading() {
+    function renderCard() {
         const text = t("welcome");
-        const node: ReactNode = <> <Edit />  <MgText text={t('iimo')} size='lg' /></>
-        const tab = ["some text", "some desc"];
         const externalHeading = "Lorem ipsum dolor sit ament"
+        const buttons: ActionButtonProps[] = [
+            { onClick: () => console.log("cancel"), title: t("cancel"), variant: "outline" },
+            { onClick: () => console.log("save"), title: t("save") },
+        ]
 
         return (
-            <MgCard heading={text} infoText={newText} externalHeading={externalHeading}>{renderContent()}</MgCard>
+            <MgCard heading={text} infoText={newText} externalHeading={externalHeading} buttons={buttons}>{renderContent()}</MgCard>
         )
     }
 

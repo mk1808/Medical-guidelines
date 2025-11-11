@@ -1,9 +1,9 @@
-import { Box, Button, Card, Center, Grid, GridItem, Separator, Stack } from "@chakra-ui/react";
+import { Box, Card, Center, Grid, GridItem, Separator, Stack } from "@chakra-ui/react";
 import { type JSX, type ReactNode } from "react";
 import MgHeading from "./MgHeading";
 import MgText from "./MgText";
-import { useTranslation } from "react-i18next";
-import type { voidFn } from "@/types/types";
+import MgActionButtons from "./MgActionButtons";
+import type { ActionButtonProps } from "@/types/interfaces";
 
 
 interface MgCardProps {
@@ -12,10 +12,7 @@ interface MgCardProps {
     externalHeading?: string,
     size?: "sm" | "md" | "lg" | "6xl";
     infoText?: string,
-    prevBtnTitle?: string,
-    nextBtnTitle?: string,
-    onCancelClick?: voidFn,
-    onSaveClick?: voidFn,
+    buttons: ActionButtonProps[]
 }
 
 export const MgCard = ({
@@ -24,12 +21,8 @@ export const MgCard = ({
     externalHeading,
     size = "6xl",
     infoText,
-    prevBtnTitle = "cancel",
-    nextBtnTitle = "save",
-    onCancelClick,
-    onSaveClick
+    buttons
 }: MgCardProps): JSX.Element => {
-    const { t } = useTranslation();
 
     return (
         <Center my="12">
@@ -60,7 +53,7 @@ export const MgCard = ({
                     {renderContent()}
                 </Card.Body>
                 <Card.Footer justifyContent="space-between" mt="4">
-                    {renderButtons()}
+                    <MgActionButtons buttons={buttons} />
                 </Card.Footer>
             </Card.Root>
         )
@@ -100,14 +93,5 @@ export const MgCard = ({
 
     function renderContent() {
         return children;
-    }
-
-    function renderButtons() {
-        return (
-            <>
-                <Button variant="outline" onClick={onCancelClick}>{t(prevBtnTitle)}</Button>
-                <Button variant="solid" onClick={onSaveClick}>{t(nextBtnTitle)}</Button>
-            </>
-        )
     }
 }
