@@ -1,4 +1,4 @@
-import { Button, Card, Center, Grid, GridItem, Separator, Stack } from "@chakra-ui/react";
+import { Box, Button, Card, Center, Grid, GridItem, Separator, Stack } from "@chakra-ui/react";
 import { type JSX, type ReactNode } from "react";
 import MgHeading from "./MgHeading";
 import MgText from "./MgText";
@@ -9,6 +9,7 @@ import type { voidFn } from "@/types/types";
 interface MgCardProps {
     children: ReactNode,
     heading: string | string[] | ReactNode;
+    externalHeading?: string,
     size?: "sm" | "md" | "lg" | "6xl";
     infoText?: string,
     prevBtnTitle?: string,
@@ -17,11 +18,35 @@ interface MgCardProps {
     onSaveClick?: voidFn,
 }
 
-export const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "cancel", nextBtnTitle = "save", onCancelClick, onSaveClick }: MgCardProps): JSX.Element => {
+export const MgCard = ({
+    children,
+    heading,
+    externalHeading,
+    size = "6xl",
+    infoText,
+    prevBtnTitle = "cancel",
+    nextBtnTitle = "save",
+    onCancelClick,
+    onSaveClick
+}: MgCardProps): JSX.Element => {
     const { t } = useTranslation();
+
     return (
-        <Center my="12">{renderCard()}</Center>
+        <Center my="12">
+            <Stack>
+                {renderExternalHeading()}
+                {renderCard()}
+            </Stack>
+        </Center>
     )
+
+    function renderExternalHeading() {
+        return externalHeading != null && (
+            <Box width={size} mb={1}>
+                <MgHeading text={externalHeading} />
+            </Box>
+        )
+    }
 
     function renderCard() {
         return (
