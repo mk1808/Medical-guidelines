@@ -4,7 +4,9 @@ import reactLogo from './../../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './../styles.scss'
 import {
-    Avatar, Button,
+    Avatar,
+    Box,
+    Button,
     Card,
     CloseButton,
     Dialog,
@@ -18,12 +20,20 @@ import {
 import { useTranslation } from 'react-i18next'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 import i18n from '../../i18n';
-import { MgHeading, MgText } from "@/components/ui";
+import { MgHeading, MgText, MgDataList } from "@/components/ui";
 
 
 const TestPage = (): JSX.Element => {
     const [count, setCount] = useState(0)
     const { t } = useTranslation();
+
+    const items = [
+        { label: "First Name", value: "Jassie" },
+        { label: "Last Name", value: "Bhatia" },
+        { label: "Email", value: "jassie@jassie.dev" },
+        { label: "Phone", value: "1234567890" },
+        { label: "Address", value: "1234 Main St, Anytown, USA" },
+    ];
 
     return (
         <div>
@@ -36,6 +46,11 @@ const TestPage = (): JSX.Element => {
             <MgText text={t('welcome')} size='md' />
             <MgText text={t('welcome')} size='lg' />
             <MgText text={t('welcome')} />
+
+            <Box marginY="50px">
+                <MgDataList items={items} />
+            </Box>
+
             <div>
                 translation {t('welcome')}
                 translation1 {i18n.t("welcome")}
