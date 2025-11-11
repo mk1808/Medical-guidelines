@@ -5,5 +5,10 @@
   "treatmentHistory": "Historia leczenia",
   "contact": "Kontakt",
   "subpages": "Podstrony",
-  "iimo":"International Institute for Molecular Oncology"
+  "iimo": "International Institute for Molecular Oncology",
+  "confirm": "Zatwierdź",
+  "save": "Zapisz",
+  "cancel": "Anuluj",
+  "prev": "Poprzedni",
+  "next": "Następny"
 }

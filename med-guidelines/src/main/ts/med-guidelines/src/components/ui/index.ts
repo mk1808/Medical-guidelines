@@ -4,5 +4,6 @@ export * from "./Toaster.tsx";
 export * from "./Tooltip.tsx";
 export * from "./MgHeading.tsx";
 export * from "./MgText.tsx";
+export * from "./MgCard.tsx";
 export * from "./MgDataList.tsx";
 export * from "./MgAccordion.tsx";
