@@ -10,5 +10,9 @@
   "save": "Save",
   "cancel": "Cancel",
   "prev": "Back",
-  "next": "Next"
+  "next": "Next",
+  "step": "Step",
+  "flow": "flow",
+  "forDisease": "for disease",
+  "version": "version"
 }
