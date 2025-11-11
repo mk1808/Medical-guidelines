@@ -36,7 +36,7 @@ export const MgCard = ({
     function renderExternalHeading() {
         return externalHeading != null && (
             <Box width={size} mb={1}>
-                <MgHeading text={externalHeading} />
+                <MgHeading text={externalHeading} firstUppercase/>
             </Box>
         )
     }

@@ -1,4 +1,5 @@
 import CardLayout from "@/components/layouts/CardLayout";
+import { FillStepCard } from "@/features/fillStep";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface FillStepPageProps {
@@ -8,8 +9,7 @@ interface FillStepPageProps {
 const FillStepPage = ({ placeholder }: FillStepPageProps): JSX.Element => (
     <CardLayout>
         <Box>
-            <h1>FillStepPage component</h1>
-            {placeholder}
+            <FillStepCard />
         </Box>
     </CardLayout>
 );
