@@ -25,10 +25,12 @@ import {
     MgHeading,
     MgText,
     MgDataList,
-    MgAccordion, 
-    MgCard
+    MgAccordion,
+    MgCard,
+    MgTable
 } from "@/components/ui";
 import { Edit } from "lucide-react";
+import TableLayout from "@/components/layouts/TableLayout";
 
 
 const TestPage = (): JSX.Element => {
@@ -51,6 +53,21 @@ const TestPage = (): JSX.Element => {
         { label: "Email", value: "jassie@jassie.dev" },
         { label: "Phone", value: "1234567890" },
         { label: "Address", value: "1234 Main St, Anytown, USA" },
+    ];
+
+    const tableColumns: any[] = [
+        { name: "Product", key: "name" },
+        { name: "Category", key: "category" },
+        { name: "Price", key: "price", align: "end" },
+        { name: "Info", key: "info", align: "end", render: (item) => <Button onClick={(event) => { console.log("buttonClicked", item); event.stopPropagation(); }}>Info</Button> }
+    ];
+
+    const tableItems = [
+        { key: "1", name: "Laptop", category: "Electronics", price: 999.99 },
+        { key: "2", name: "Coffee Maker", category: "Home Appliances", price: 49.99 },
+        { key: "3", name: "Desk Chair", category: "Furniture", price: 150.0 },
+        { key: "4", name: "Smartphone", category: "Electronics", price: 799.99 },
+        { key: "5", name: "Headphones", category: "Accessories", price: 199.99 },
     ];
 
     return (
@@ -191,6 +208,7 @@ const TestPage = (): JSX.Element => {
                 </Tabs.Content>
             </Tabs.Root>
             {renderHeading()}
+            {renderTable()}
         </div>
     )
 
@@ -217,6 +235,16 @@ const TestPage = (): JSX.Element => {
                     <Input />
                 </Field.Root>
             </Stack>
+        )
+    }
+
+    function renderTable() {
+        return (
+            <TableLayout>
+                <Box w="1500px">
+                    <MgTable items={tableItems} columns={tableColumns} onClick={(item) => console.log(item)} />
+                </Box>
+            </TableLayout>
         )
     }
 };

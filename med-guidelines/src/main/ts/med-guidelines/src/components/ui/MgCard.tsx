@@ -111,5 +111,3 @@ export const MgCard = ({
         )
     }
 }
-
-export default MgCard;
