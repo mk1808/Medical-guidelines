@@ -2,15 +2,23 @@ import { Button, Card, Center, Grid, GridItem, Separator, Stack } from "@chakra-
 import { type JSX, type ReactNode } from "react";
 import MgHeading from "./MgHeading";
 import MgText from "./MgText";
+import { useTranslation } from "react-i18next";
+import type { voidFn } from "@/types/types";
+
 
 interface MgCardProps {
     children: ReactNode,
     heading: string | string[] | ReactNode;
     size?: "sm" | "md" | "lg" | "6xl";
-    infoText?: string
+    infoText?: string,
+    prevBtnTitle?: string,
+    nextBtnTitle?: string,
+    onCancelClick?: voidFn,
+    onSaveClick?: voidFn,
 }
 
-const MgCard = ({ children, heading, size = "6xl", infoText }: MgCardProps): JSX.Element => {
+const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "cancel", nextBtnTitle = "save", onCancelClick, onSaveClick }: MgCardProps): JSX.Element => {
+    const { t } = useTranslation();
     return (
         <Center my="12">{renderCard()}</Center>
     )
@@ -72,8 +80,8 @@ const MgCard = ({ children, heading, size = "6xl", infoText }: MgCardProps): JSX
     function renderButtons() {
         return (
             <>
-                <Button variant="outline">Cancel</Button>
-                <Button variant="solid">Sign in</Button>
+                <Button variant="outline" onClick={onCancelClick}>{t(prevBtnTitle)}</Button>
+                <Button variant="solid" onClick={onSaveClick}>{t(nextBtnTitle)}</Button>
             </>
         )
     }
