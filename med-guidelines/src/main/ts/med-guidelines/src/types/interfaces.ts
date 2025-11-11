@@ -5,4 +5,5 @@ export interface ActionButtonProps {
     onClick: voidFn;
     variant?: "outline" | "solid" | "subtle" | "surface" | "ghost" | "plain";
     colorPalette?: string;
+    toLeft?: boolean
 }

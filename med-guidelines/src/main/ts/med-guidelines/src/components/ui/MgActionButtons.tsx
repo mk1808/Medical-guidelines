@@ -8,9 +8,14 @@ interface MgActionButtonsProps {
 
 export const MgActionButtons = ({ buttons }: MgActionButtonsProps): JSX.Element => {
 
-    const getMarginIfOnlyOneButton = () => buttons.length === 1 ? { marginLeft: 'auto' } : {};
-
     const onlyOneButtonMargin = useMemo(getMarginIfOnlyOneButton, [buttons])
+
+    function getMarginIfOnlyOneButton() {
+        if (buttons.length === 1 && !buttons[0].toLeft) {
+            return { marginLeft: 'auto' };
+        }
+        return {};
+    }
 
     return (
         <>
