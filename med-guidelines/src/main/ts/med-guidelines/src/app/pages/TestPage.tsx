@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { type JSX, type ReactNode } from "react";
 import { useState } from 'react'
 import reactLogo from './../../assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -8,6 +8,7 @@ import {
     Card,
     CloseButton,
     Dialog,
+    Field,
     For,
     HStack,
     Input,
@@ -20,11 +21,14 @@ import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 import i18n from '../../i18n';
 import { MgHeading, MgText } from "@/components/ui";
 import MgCard from "@/components/ui/MgCard";
+import { Edit } from "lucide-react";
 
 
 const TestPage = (): JSX.Element => {
     const [count, setCount] = useState(0)
     const { t } = useTranslation();
+    const newText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "
+
 
     return (
         <div>
@@ -154,9 +158,34 @@ const TestPage = (): JSX.Element => {
                     Manage your tasks for freelancers
                 </Tabs.Content>
             </Tabs.Root>
-            <MgCard text={""} >a</MgCard>
+            {renderHeading()}
         </div>
     )
+
+    function renderHeading() {
+        const text = t("welcome");
+        const node: ReactNode = <> <Edit />  <MgText text={t('iimo')} size='lg' /></>
+        const tab = ["some text", "some desc"]
+
+        return (
+            <MgCard heading={text} infoText={newText}>{renderContent()}</MgCard>
+        )
+    }
+
+    function renderContent() {
+        return (
+            <Stack gap="4" w="full">
+                <Field.Root>
+                    <Field.Label>First Name</Field.Label>
+                    <Input />
+                </Field.Root>
+                <Field.Root>
+                    <Field.Label>Last Name</Field.Label>
+                    <Input />
+                </Field.Root>
+            </Stack>
+        )
+    }
 };
 
 export default TestPage;
