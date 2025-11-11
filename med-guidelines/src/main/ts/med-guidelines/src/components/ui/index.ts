@@ -7,3 +7,4 @@ export * from "./MgText.tsx";
 export * from "./MgCard.tsx";
 export * from "./MgDataList.tsx";
 export * from "./MgAccordion.tsx";
+export * from "./MgActionButtons.tsx";
