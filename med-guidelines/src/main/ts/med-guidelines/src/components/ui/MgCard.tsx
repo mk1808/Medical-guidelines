@@ -42,10 +42,10 @@ const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "can
     }
 
     function renderHeading() {
-        if ((typeof heading === "string")) {
-            return <MgHeading size="md" text={heading}></MgHeading>
+        if (typeof heading === "string") {
+            return <MgHeading size="md" text={heading} />
         }
-        if (((Array.isArray(heading)))) {
+        if (Array.isArray(heading)) {
             return renderHeadingWithGrid(heading);
         }
         return heading;
@@ -55,11 +55,11 @@ const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "can
         return (
             <Grid templateColumns="2fr 0.2fr repeat(6, 1fr)" >
                 <GridItem colSpan={1}>
-                    <MgHeading size="md" text={array[0]}></MgHeading>
+                    <MgHeading size="md" text={array[0]} />
                 </GridItem>
                 <Separator orientation="vertical" />
                 <GridItem colSpan={4}>
-                    <MgHeading size="md" text={array[1]}></MgHeading>
+                    <MgHeading size="md" text={array[1]} />
                 </GridItem>
             </Grid>
         )
@@ -68,7 +68,7 @@ const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "can
     function renderInfoText() {
         return infoText != null && (
             <Stack mb="4">
-                <MgText text={infoText}></MgText>
+                <MgText text={infoText} />
             </Stack>
         )
     }
