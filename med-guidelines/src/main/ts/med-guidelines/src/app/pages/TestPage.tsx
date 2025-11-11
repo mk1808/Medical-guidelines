@@ -8,6 +8,7 @@ import {
     Box,
     Button,
     Card,
+    Center,
     CloseButton,
     Dialog,
     Field,
@@ -26,9 +27,11 @@ import {
     MgText,
     MgDataList,
     MgAccordion, 
-    MgCard
+    MgCard,
+    MgTable
 } from "@/components/ui";
 import { Edit } from "lucide-react";
+import TableLayout from "@/components/layouts/TableLayout";
 
 
 const TestPage = (): JSX.Element => {
@@ -191,6 +194,7 @@ const TestPage = (): JSX.Element => {
                 </Tabs.Content>
             </Tabs.Root>
             {renderHeading()}
+            {renderTable()}
         </div>
     )
 
@@ -216,6 +220,13 @@ const TestPage = (): JSX.Element => {
                     <Input />
                 </Field.Root>
             </Stack>
+        )
+    }
+
+    
+    function renderTable() {
+        return(
+            <TableLayout> <MgTable></MgTable></TableLayout>
         )
     }
 };

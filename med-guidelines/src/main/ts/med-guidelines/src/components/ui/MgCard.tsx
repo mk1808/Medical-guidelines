@@ -17,7 +17,7 @@ interface MgCardProps {
     onSaveClick?: voidFn,
 }
 
-const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "cancel", nextBtnTitle = "save", onCancelClick, onSaveClick }: MgCardProps): JSX.Element => {
+export const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "cancel", nextBtnTitle = "save", onCancelClick, onSaveClick }: MgCardProps): JSX.Element => {
     const { t } = useTranslation();
     return (
         <Center my="12">{renderCard()}</Center>
@@ -86,5 +86,3 @@ const MgCard = ({ children, heading, size = "6xl", infoText, prevBtnTitle = "can
         )
     }
 }
-
-export default MgCard;
