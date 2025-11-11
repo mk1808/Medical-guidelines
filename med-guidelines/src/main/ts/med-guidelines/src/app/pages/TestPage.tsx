@@ -197,10 +197,11 @@ const TestPage = (): JSX.Element => {
     function renderHeading() {
         const text = t("welcome");
         const node: ReactNode = <> <Edit />  <MgText text={t('iimo')} size='lg' /></>
-        const tab = ["some text", "some desc"]
+        const tab = ["some text", "some desc"];
+        const externalHeading = "Lorem ipsum dolor sit ament"
 
         return (
-            <MgCard heading={text} infoText={newText}>{renderContent()}</MgCard>
+            <MgCard heading={text} infoText={newText} externalHeading={externalHeading}>{renderContent()}</MgCard>
         )
     }
 
