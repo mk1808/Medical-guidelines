@@ -14,5 +14,9 @@
   "step": "Krok",
   "flow": "flow",
   "forDisease": "dla choroby",
-  "version": "wersja"
+  "version": "wersja",
+  "loggingIn": "logowanie",
+  "login": "Login",
+  "password": "Hasło",
+  "loginAction": "Zaloguj"
 }

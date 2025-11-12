@@ -61,7 +61,7 @@ export const MgCard = ({
 
     function renderHeading() {
         if (typeof heading === "string") {
-            return <MgHeading size="md" text={heading} />
+            return <MgHeading size="md" text={heading} firstUppercase/>
         }
         if (Array.isArray(heading)) {
             return renderHeadingWithGrid(heading);

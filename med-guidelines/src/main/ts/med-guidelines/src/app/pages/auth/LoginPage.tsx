@@ -1,11 +1,21 @@
 import AuthLayout from "@/components/layouts/AuthLayout";
+import { MgCard, MgInput } from "@/components/ui";
+import type { ActionButtonProps } from "@/types/interfaces";
 import { Box, Button, Card, Center, Field, Flex, Heading, Input, Stack } from "@chakra-ui/react";
-import { type JSX } from "react";
+import { useMemo, useState, type JSX } from "react";
+import { useTranslation } from "react-i18next";
 interface LoginPageProps {
 	placeholder?: string;
 }
 
 const LoginPage = ({ placeholder }: LoginPageProps): JSX.Element => {
+	const { t } = useTranslation();
+
+	const [login, setLogin] = useState<string>();
+	const [password, setPassword] = useState<string>();
+	const buttons: ActionButtonProps[] = useMemo(() => [
+		{ onClick: () => console.log("login"), title: t("loginAction") },
+	], [])
 	return (
 		<AuthLayout>
 			{renderCard()}
@@ -13,33 +23,19 @@ const LoginPage = ({ placeholder }: LoginPageProps): JSX.Element => {
 	)
 
 	function renderCard() {
+		return <MgCard heading={t("loggingIn")} buttons={buttons} size="lg">{renderContent()}</MgCard>
+	}
+
+	function renderContent() {
 		return (
-			<Card.Root maxW="lg" minW="lg">
-				<Card.Header>
-					<Heading size="lg">Login</Heading>
-					<Card.Description>
-						Login
-					</Card.Description>
-				</Card.Header>
-				<Card.Body>
-					<Stack gap="4" w="full">
-						<Field.Root>
-							<Field.Label>First Name</Field.Label>
-							<Input />
-						</Field.Root>
-						<Field.Root>
-							<Field.Label>Last Name</Field.Label>
-							<Input />
-						</Field.Root>
-					</Stack>
-				</Card.Body>
-				<Card.Footer justifyContent="flex-end">
-					<Button variant="outline">Cancel</Button>
-					<Button variant="solid">Sign in</Button>
-				</Card.Footer>
-			</Card.Root>
+			<Stack gap="4" w="full">
+				<MgInput label={t("login")} value={login} onValueChange={setLogin} />
+				<MgInput label={t("password")} value={password} type="password" onValueChange={setPassword} />
+			</Stack>
 		)
 	}
+
+
 };
 
 

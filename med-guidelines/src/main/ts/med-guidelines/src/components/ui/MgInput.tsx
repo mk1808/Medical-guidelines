@@ -8,6 +8,7 @@ interface MgInputProps {
     value?: string;
     onValueChange?: callbackFn<string>;
     invalid?: boolean
+    type?: "text" | "number" | "password"
 }
 
 export const MgInput = ({
@@ -16,6 +17,7 @@ export const MgInput = ({
     value,
     onValueChange,
     invalid,
+    type = "text"
 }: MgInputProps): JSX.Element => {
 
     const valueChangeTimeout = useRef<number>(null);
@@ -35,6 +37,7 @@ export const MgInput = ({
             <Input
                 placeholder={placeholder}
                 variant="outline"
+                type={type}
                 defaultValue={value}
                 onChange={onChange}
             />
