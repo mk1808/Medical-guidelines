@@ -31,11 +31,13 @@ import {
 } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
+import { useRouterNavigate } from "@/hooks/useRouterNavigate";
 
 
 const TestPage = (): JSX.Element => {
     const [count, setCount] = useState(0)
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const newText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "
 
 
@@ -209,6 +211,8 @@ const TestPage = (): JSX.Element => {
             </Tabs.Root>
             {renderCard()}
             {renderTable()}
+            <Button onClick={() => navigate("login")}>take me to login</Button>
+            <Button onClick={() => navigate("back")}>take me back</Button>
         </div>
     )
 
