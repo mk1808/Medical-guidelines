@@ -33,7 +33,7 @@ export const MgInput = ({
 
     return (
         <Field.Root invalid={invalid}>
-            <Field.Label className="first-letter-upperrcase">{label}</Field.Label>
+            <Field.Label>{label}</Field.Label>
             <Input
                 placeholder={placeholder}
                 variant="outline"

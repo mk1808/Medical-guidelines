@@ -14,8 +14,7 @@ const LoginPage = ({ placeholder }: LoginPageProps): JSX.Element => {
 	const [login, setLogin] = useState<string>();
 	const [password, setPassword] = useState<string>();
 	const buttons: ActionButtonProps[] = [
-		{ onClick: () => console.log("cancel"), title: t("cancel"), variant: "outline" },
-		{ onClick: () => console.log("save"), title: t("save") },
+		{ onClick: () => console.log("login"), title: t("loginAction") },
 	]
 	return (
 		<AuthLayout>

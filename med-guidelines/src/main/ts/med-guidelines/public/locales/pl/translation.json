@@ -16,6 +16,7 @@
   "forDisease": "dla choroby",
   "version": "wersja",
   "loggingIn": "logowanie",
-  "login": "login",
-  "password": "hasło"
+  "login": "Login",
+  "password": "Hasło",
+  "loginAction": "Zaloguj"
 }
