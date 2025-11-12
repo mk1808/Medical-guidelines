@@ -14,5 +14,8 @@
   "step": "Step",
   "flow": "flow",
   "forDisease": "for disease",
-  "version": "version"
+  "version": "version",
+  "loggingIn": "sign in",
+  "login": "login",
+  "password": "password"
 }
