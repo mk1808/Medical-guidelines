@@ -31,7 +31,8 @@ import {
 } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
-import { useRouterNavigate } from "@/hooks/useRouterNavigate";
+import { useRouterNavigate } from "@/hooks";
+
 
 
 const TestPage = (): JSX.Element => {
