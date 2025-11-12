@@ -27,7 +27,8 @@ import {
     MgDataList,
     MgAccordion,
     MgCard,
-    MgTable
+    MgTable,
+    MgInput
 } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
@@ -70,6 +71,8 @@ const TestPage = (): JSX.Element => {
         { key: "5", name: "Headphones", category: "Accessories", price: 199.99 },
     ];
 
+    const [inputValue, setInputValue] = useState<string>();
+
     return (
         <div>
             <MgHeading text={t('welcome')} size='sm' />
@@ -81,6 +84,11 @@ const TestPage = (): JSX.Element => {
             <MgText text={t('welcome')} size='md' />
             <MgText text={t('welcome')} size='lg' />
             <MgText text={t('welcome')} />
+
+            <Box marginY="50px" w="1/2" marginX="auto">
+                <MgInput label="Input value" placeholder="Placeholder" value={inputValue} onValueChange={setInputValue} />
+                {inputValue}
+            </Box>
 
             <Box marginY="50px">
                 <MgDataList items={dataListItems} />
