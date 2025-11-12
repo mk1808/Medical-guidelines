@@ -2,7 +2,7 @@ import AuthLayout from "@/components/layouts/AuthLayout";
 import { MgCard, MgInput } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { Box, Button, Card, Center, Field, Flex, Heading, Input, Stack } from "@chakra-ui/react";
-import { useState, type JSX } from "react";
+import { useMemo, useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 interface LoginPageProps {
 	placeholder?: string;
@@ -13,9 +13,9 @@ const LoginPage = ({ placeholder }: LoginPageProps): JSX.Element => {
 
 	const [login, setLogin] = useState<string>();
 	const [password, setPassword] = useState<string>();
-	const buttons: ActionButtonProps[] = [
+	const buttons: ActionButtonProps[] = useMemo(() => [
 		{ onClick: () => console.log("login"), title: t("loginAction") },
-	]
+	], [])
 	return (
 		<AuthLayout>
 			{renderCard()}
