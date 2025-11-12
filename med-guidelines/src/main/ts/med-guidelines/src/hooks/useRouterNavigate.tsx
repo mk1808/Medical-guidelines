@@ -4,7 +4,7 @@ import { useNavigate, type To } from "react-router";
 export const useRouterNavigate = () => {
     const routerNavigate = useNavigate();
 
-    const getPath = (path: string, additionalParams?: any): To | null => {
+    const getPath = <T,>(path: string, additionalParams?: T): To | number | null => {
         switch (path) {
             case "back": return -1;
             case "landing": return "/";
@@ -26,11 +26,11 @@ export const useRouterNavigate = () => {
         }
 
     }
-    const navigate = (path: string, additionalParams?: any) => {
+    const navigate = <T,>(path: string, additionalParams?: T) => {
         const fullPath = getPath(path, additionalParams);
 
         if (fullPath != null) {
-            routerNavigate(fullPath);
+            routerNavigate(fullPath as To);
         }
     }
 
