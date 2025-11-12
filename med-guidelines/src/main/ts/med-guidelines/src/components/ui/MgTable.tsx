@@ -1,7 +1,8 @@
 import type { callbackFn } from "@/types/types";
-import { Table } from "@chakra-ui/react";
+import { Box, Stack, Table } from "@chakra-ui/react";
 import { type JSX, type ReactNode } from "react";
 import MgText from "./MgText";
+import MgHeading from "./MgHeading";
 
 interface MgTableColumn<T> {
     name: string;
@@ -15,9 +16,10 @@ interface MgTableProps<T extends { key: string }> {
     columns: MgTableColumn<T>[];
     onClick?: callbackFn;
     size?: "sm" | "md" | "lg";
+    externalHeading?: string;
 }
 
-export const MgTable = <T extends { key: string },>({ items, columns, onClick, size = "lg" }: MgTableProps<T>): JSX.Element => {
+export const MgTable = <T extends { key: string },>({ items, columns, onClick, size = "lg", externalHeading }: MgTableProps<T>): JSX.Element => {
 
     const getCellContent = (item: T, col: MgTableColumn<T>): ReactNode => {
         if (col.render != null) {
@@ -30,16 +32,19 @@ export const MgTable = <T extends { key: string },>({ items, columns, onClick, s
     const onRowClick = (item: T) => onClick && onClick(item);
 
     return (
-        <Table.Root size={size} variant="outline" interactive>
-            <Table.Header>
-                <Table.Row>
-                    {columns.map((col) => renderColHeader(col))}
-                </Table.Row>
-            </Table.Header>
-            <Table.Body>
-                {items.map((item) => renderRow(item))}
-            </Table.Body>
-        </Table.Root>
+        <Stack>
+            {renderExternalHeading()}
+            <Table.Root size={size} variant="outline" interactive>
+                <Table.Header>
+                    <Table.Row>
+                        {columns.map((col) => renderColHeader(col))}
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                    {items.map((item) => renderRow(item))}
+                </Table.Body>
+            </Table.Root>
+        </Stack>
     )
 
 
@@ -60,6 +65,14 @@ export const MgTable = <T extends { key: string },>({ items, columns, onClick, s
             <Table.Cell textAlign={col.align} key={col.key}>
                 {getCellContent(item, col)}
             </Table.Cell>
+        )
+    }
+
+    function renderExternalHeading() {
+        return externalHeading != null && (
+            <Box width={size} mb={1}>
+                <MgHeading text={externalHeading} firstUppercase />
+            </Box>
         )
     }
 }

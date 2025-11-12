@@ -14,5 +14,6 @@
   "step": "Krok",
   "flow": "flow",
   "forDisease": "dla choroby",
-  "version": "wersja"
+  "version": "wersja",
+  "availableFlows": "Obecnie dostępne są następujące flow: "
 }

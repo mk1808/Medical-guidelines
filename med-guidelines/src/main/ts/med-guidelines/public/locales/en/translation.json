@@ -14,5 +14,6 @@
   "step": "Step",
   "flow": "flow",
   "forDisease": "for disease",
-  "version": "version"
+  "version": "version",
+  "availableFlows": "Currently following flows are available: "
 }
