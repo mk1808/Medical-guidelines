@@ -18,5 +18,8 @@
   "loggingIn": "sign in",
   "login": "Login",
   "password": "Password",
-  "loginAction": "Sign in"
+  "confirmPassword": "Confirm password",
+  "loginAction": "Sign in",
+  "registerHeader": "Create new account",
+  "registerAction": "Sign up"
 }
