@@ -18,5 +18,8 @@
   "loggingIn": "logowanie",
   "login": "Login",
   "password": "Hasło",
-  "loginAction": "Zaloguj"
+  "confirmPassword": "Powtórz hasło",
+  "loginAction": "Zaloguj",
+  "registerHeader": "Utwórz nowe konto",
+  "registerAction": "Zarejestruj"
 }
