@@ -1,5 +1,6 @@
 import { MgCard, MgSelect } from "@/components/ui";
 import type { ActionButtonProps, SelectValueProps } from "@/types/interfaces";
+import { formCardExternalHeading } from "@/utils/cardUtils";
 import { Center, Stack } from "@chakra-ui/react";
 import { useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
@@ -18,7 +19,7 @@ export const FillStepCard = ({ placeholder }: FillStepCardProps): JSX.Element =>
     const disease = "lung cancer";
     const version = "2025.04.1"
 
-    const externalHeading = `${t("flow")} ${flowName} ${t("forDisease")} ${disease}, ${t("version")}: ${version}`;
+    const externalHeading = formCardExternalHeading({ flowName, disease, version });
     const buttons: ActionButtonProps[] = [
         { onClick: () => console.log("cancel"), title: t("cancel"), variant: "outline" },
         { onClick: () => console.log("save"), title: t("next") },
