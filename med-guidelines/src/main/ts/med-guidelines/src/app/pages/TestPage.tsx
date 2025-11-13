@@ -28,7 +28,8 @@ import {
     MgAccordion,
     MgCard,
     MgTable,
-    MgInput
+    MgInput,
+    MgList
 } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
@@ -99,6 +100,12 @@ const TestPage = (): JSX.Element => {
 
             <Box marginY="50px">
                 <MgAccordion items={accordionItems} />
+            </Box>
+
+            <Box marginY="50px" >
+                <MgList items={["Lorem ipsum dolor sit amet", " consectetur adipisicing elit", " Assumenda, quia temporibus", "eveniet a libero incidunt suscipit"]} />
+                <br /><br />
+                <MgList items={["Lorem ipsum dolor sit amet", " consectetur adipisicing elit", " Assumenda, quia temporibus", "eveniet a libero incidunt suscipit"]} type="ol"/>
             </Box>
 
             <div>

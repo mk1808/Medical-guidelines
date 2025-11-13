@@ -11,3 +11,4 @@ export * from "./MgActionButtons.tsx";
 export * from "./MgTable.tsx";
 export * from "./MgSelect.tsx";
 export * from "./MgInput.tsx";
+export * from "./MgList.tsx";
