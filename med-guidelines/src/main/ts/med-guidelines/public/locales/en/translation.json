@@ -16,11 +16,18 @@
   "flow": "flow",
   "forDisease": "for disease",
   "version": "version",
+  "availableFlows": "Currently following flows are available:",
   "loggingIn": "sign in",
   "login": "Login",
   "password": "Password",
   "confirmPassword": "Confirm password",
   "loginAction": "Sign in",
   "registerHeader": "Create new account",
-  "registerAction": "Sign up"
+  "registerAction": "Sign up",
+  "disease": "Disease",
+  "flowName": "Flow name",
+  "flowVersion": "Version",
+  "created": "Creation date",
+  "author": "Author",
+  "updated": "Last update date"
 }

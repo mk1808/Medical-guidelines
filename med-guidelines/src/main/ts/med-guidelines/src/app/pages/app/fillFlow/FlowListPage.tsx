@@ -1,4 +1,5 @@
 import TableLayout from "@/components/layouts/TableLayout";
+import { FlowList } from "@/features/flowList";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface FlowListPageProps {
@@ -8,8 +9,7 @@ interface FlowListPageProps {
 const FlowListPage = ({ placeholder }: FlowListPageProps): JSX.Element => (
     <TableLayout>
         <Box>
-            <h1>FlowListPage component</h1>
-            {placeholder}
+            <FlowList />
         </Box>
     </TableLayout>
 );

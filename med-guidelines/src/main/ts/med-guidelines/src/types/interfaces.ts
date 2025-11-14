@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { voidFn } from "./types";
 
 export interface ActionButtonProps {
@@ -12,4 +13,21 @@ export interface SelectValueProps<T> {
     label: string;
     key: string;
     value: T;
+}
+
+export interface MgTableColumn<T> {
+    name: string;
+    key?: string;
+    align?: "start" | "end" | "center";
+    render?: (item: T) => ReactNode;
+}
+
+export interface Flow {
+    id: string;
+    disease: string;
+    name: string;
+    version: string;
+    created: Date;
+    author: string;
+    updated: Date;
 }

@@ -13,12 +13,10 @@ export const FillStepCard = ({ placeholder }: FillStepCardProps): JSX.Element =>
     const { t } = useTranslation();
     const stepNo = 1;
     const stepName = "Some step name";
-
     const text = [`${t("step")} ${stepNo}`, stepName];
     const flowName = "X";
     const disease = "lung cancer";
     const version = "2025.04.1"
-
     const externalHeading = formCardExternalHeading({ flowName, disease, version });
     const buttons: ActionButtonProps[] = [
         { onClick: () => console.log("cancel"), title: t("cancel"), variant: "outline" },
