@@ -24,10 +24,12 @@
   "loginAction": "Sign in",
   "registerHeader": "Create new account",
   "registerAction": "Sign up",
+  "newFlow": "New flow",
   "disease": "Disease",
   "flowName": "Flow name",
   "flowVersion": "Version",
   "created": "Creation date",
   "author": "Author",
-  "updated": "Last update date"
+  "updated": "Last update date",
+  "generalInformation": "General information"
 }
