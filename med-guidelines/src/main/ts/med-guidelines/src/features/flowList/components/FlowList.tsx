@@ -1,4 +1,5 @@
 import { MgTable } from "@/components/ui";
+import type { Flow, MgTableColumn } from "@/types/interfaces";
 import { Box, Button } from "@chakra-ui/react";
 import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
@@ -12,25 +13,27 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
     const { t } = useTranslation();
     const heading = t("availableFlows");
 
-    const tableColumns: any[] = [
-        { name: "Product", key: "name" },
-        { name: "Category", key: "category" },
-        { name: "Price", key: "price", align: "end" },
-        { name: "Info", key: "info", align: "end", render: (item) => <Button onClick={(event) => { console.log("buttonClicked", item); event.stopPropagation(); }}>Info</Button> }
+    const tableColumns: MgTableColumn<Flow>[] = [
+        { name: "", key: "key", render: (item: Flow) => item.id },
+        { name: "disease", key: "disease" },
+        { name: "flowName", key: "name" },
+        { name: "flowVersion", key: "version" },
+        { name: "created", key: "created", render: (item: Flow) => new Intl.DateTimeFormat("pl-PL").format(item.created) },
+        { name: "author", key: "author" },
+        { name: "updated", key: "updated", render: (item: Flow) => new Intl.DateTimeFormat("pl-PL").format(item.updated) }
     ];
 
-    const tableItems = [
-        { key: "1", name: "Laptop", category: "Electronics", price: 999.99 },
-        { key: "2", name: "Coffee Maker", category: "Home Appliances", price: 49.99 },
-        { key: "3", name: "Desk Chair", category: "Furniture", price: 150.0 },
-        { key: "4", name: "Smartphone", category: "Electronics", price: 799.99 },
-        { key: "5", name: "Headphones", category: "Accessories", price: 199.99 },
+    const tableItems: Flow[] = [
+        { id: "1", name: "New flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
+        { id: "2", name: "Fixed flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
+        { id: "3", name: "New flow", disease: "Lung cancer", version: "2025.05", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
+
     ];
     return (
         <Box w="1500px">
-            <MgTable 
-                items={tableItems} 
-                columns={tableColumns} 
+            <MgTable
+                items={tableItems}
+                columns={tableColumns}
                 externalHeading={heading}
                 onClick={(item) => console.log(item)} />
         </Box>

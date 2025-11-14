@@ -22,5 +22,11 @@
   "confirmPassword": "Powtórz hasło",
   "loginAction": "Zaloguj",
   "registerHeader": "Utwórz nowe konto",
-  "registerAction": "Zarejestruj"
+  "registerAction": "Zarejestruj",
+  "disease": "Choroba",
+  "flowName": "Nazwa flow",
+  "flowVersion": "Wersja",
+  "created": "Data utworzenia",
+  "author": "Autor",
+  "updated": "Data modyfikacji"
 }

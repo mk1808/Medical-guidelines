@@ -3,14 +3,8 @@ import { Box, Stack, Table } from "@chakra-ui/react";
 import { type JSX, type ReactNode } from "react";
 import MgText from "./MgText";
 import MgHeading from "./MgHeading";
-
-interface MgTableColumn<T> {
-    name: string;
-    key?: string;
-    align?: "start" | "end" | "center";
-    render?: (item: T) => ReactNode;
-}
-
+import type { MgTableColumn } from "@/types/interfaces";
+import { useTranslation } from "react-i18next";
 interface MgTableProps<T extends { key: string }> {
     items: T[];
     columns: MgTableColumn<T>[];
@@ -20,6 +14,7 @@ interface MgTableProps<T extends { key: string }> {
 }
 
 export const MgTable = <T extends { key: string },>({ items, columns, onClick, size = "lg", externalHeading }: MgTableProps<T>): JSX.Element => {
+    const { t } = useTranslation();
 
     const getCellContent = (item: T, col: MgTableColumn<T>): ReactNode => {
         if (col.render != null) {
@@ -29,7 +24,7 @@ export const MgTable = <T extends { key: string },>({ items, columns, onClick, s
         return <MgText text={item[col.key as Key] as string} />
     }
 
-    const onRowClick = (item: T) => onClick && onClick(item);
+    const onRowClick = (item: T) => onClick?.(item);
 
     return (
         <Stack>
@@ -49,7 +44,7 @@ export const MgTable = <T extends { key: string },>({ items, columns, onClick, s
 
 
     function renderColHeader({ name, align = "start" }: MgTableColumn<T>) {
-        return <Table.ColumnHeader textAlign={align} key={name}>{name}</Table.ColumnHeader>
+        return <Table.ColumnHeader textAlign={align} key={name}>{t(name)}</Table.ColumnHeader>
     }
 
     function renderRow(item: T) {
