@@ -25,9 +25,9 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
     ];
 
     const tableItems: Flow[] = [
-        { id: "1", name: "New flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
-        { id: "2", name: "Fixed flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
-        { id: "3", name: "New flow", disease: "Lung cancer", version: "2025.05", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
+        { id: "11", name: "New flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
+        { id: "22", name: "Fixed flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
+        { id: "33", name: "New flow", disease: "Lung cancer", version: "2025.05", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
 
     ];
     return (
@@ -36,6 +36,7 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
                 items={tableItems}
                 columns={tableColumns}
                 externalHeading={heading}
+                showRowNumber={true}
                 onClick={(item) => click(item)} />
         </Box>
     )

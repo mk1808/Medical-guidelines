@@ -13,9 +13,10 @@ interface MgTableProps<T extends { id: string }> {
     onClick?: callbackFn<T>;
     size?: "sm" | "md" | "lg";
     externalHeading?: string;
+    showRowNumber?: boolean
 }
 
-export const MgTable = <T extends { id: string },>({ items, columns, onClick, size = "lg", externalHeading }: MgTableProps<T>): JSX.Element => {
+export const MgTable = <T extends { id: string },>({ items, columns, onClick, size = "lg", externalHeading, showRowNumber = false }: MgTableProps<T>): JSX.Element => {
     const { t } = useTranslation();
 
     const getCellContent = (item: T, col: MgTableColumn<T>): ReactNode => {
@@ -34,7 +35,7 @@ export const MgTable = <T extends { id: string },>({ items, columns, onClick, si
             <Table.Root size={size} variant="outline" interactive>
                 <Table.Header>
                     <Table.Row>
-                        {renderIndexColHeader()}
+                        {showRowNumber && renderIndexColHeader()}
                         {columns.map((col) => renderColHeader(col))}
                     </Table.Row>
                 </Table.Header>
@@ -51,13 +52,13 @@ export const MgTable = <T extends { id: string },>({ items, columns, onClick, si
     }
 
     function renderIndexColHeader() {
-        return <Table.ColumnHeader textAlign="start" key="index"/>
+        return <Table.ColumnHeader textAlign="start" key="index" />
     }
 
     function renderRow(item: T, index: number) {
         return (
             <Table.Row className={onClick ? "row-pointer" : ""} key={item.id} onClick={() => onRowClick(item)}>
-                {renderIndex(index)}
+                {showRowNumber && renderIndex(index)}
                 {columns.map((col) => renderCell(item, col))}
             </Table.Row>
         )
