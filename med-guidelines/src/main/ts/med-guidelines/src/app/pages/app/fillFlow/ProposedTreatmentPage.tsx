@@ -1,6 +1,8 @@
 import CardLayout from "@/components/layouts/CardLayout";
+import { ProposedTreatmentCard } from "@/features/proposedTreatment";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
+
 interface ProposedTreatmentPageProps {
     placeholder?: string;
 }
@@ -8,8 +10,7 @@ interface ProposedTreatmentPageProps {
 const ProposedTreatmentPage = ({ placeholder }: ProposedTreatmentPageProps): JSX.Element => (
     <CardLayout>
         <Box>
-            <h1>ProposedTreatmentPage component</h1>
-            {placeholder}
+            <ProposedTreatmentCard />
         </Box>
     </CardLayout>
 );

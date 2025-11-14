@@ -28,7 +28,9 @@ import {
     MgAccordion,
     MgCard,
     MgTable,
-    MgInput
+    MgInput,
+    MgList,
+    MgCheckbox
 } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
@@ -99,6 +101,12 @@ const TestPage = (): JSX.Element => {
 
             <Box marginY="50px">
                 <MgAccordion items={accordionItems} />
+            </Box>
+
+            <Box marginY="50px" >
+                <MgList items={["Lorem ipsum dolor sit amet", " consectetur adipisicing elit", " Assumenda, quia temporibus", "eveniet a libero incidunt suscipit"]} />
+                <br /><br />
+                <MgList items={["Lorem ipsum dolor sit amet", " consectetur adipisicing elit", " Assumenda, quia temporibus", "eveniet a libero incidunt suscipit"]} type="ol" />
             </Box>
 
             <div>
@@ -220,8 +228,13 @@ const TestPage = (): JSX.Element => {
             </Tabs.Root>
             {renderCard()}
             {renderTable()}
+
             <Button onClick={() => navigate("login")}>take me to login</Button>
             <Button onClick={() => navigate("back")}>take me back</Button>
+            <Stack m="6">
+                <MgCheckbox text="Some text to check" extraInfo="By clicking this, you agree to our Terms and Privacy Policy."></MgCheckbox>
+            </Stack>
+
         </div>
     )
 
