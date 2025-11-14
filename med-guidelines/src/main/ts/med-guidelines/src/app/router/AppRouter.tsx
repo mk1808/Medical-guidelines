@@ -57,7 +57,7 @@ const AppRoutes = createBrowserRouter([
         Component: FlowSummaryPage,
     },
     {
-        path: "/flowList",
+        path: "/flowList/:role",
         Component: FlowListPage,
     },
     {
