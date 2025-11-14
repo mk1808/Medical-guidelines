@@ -5,15 +5,17 @@ import MgText from "./MgText";
 import MgHeading from "./MgHeading";
 import type { MgTableColumn } from "@/types/interfaces";
 import { useTranslation } from "react-i18next";
-interface MgTableProps<T extends { key: string }> {
+
+import './styles.scss'
+interface MgTableProps<T extends { id: string }> {
     items: T[];
     columns: MgTableColumn<T>[];
-    onClick?: callbackFn;
+    onClick?: callbackFn<T>;
     size?: "sm" | "md" | "lg";
     externalHeading?: string;
 }
 
-export const MgTable = <T extends { key: string },>({ items, columns, onClick, size = "lg", externalHeading }: MgTableProps<T>): JSX.Element => {
+export const MgTable = <T extends { id: string },>({ items, columns, onClick, size = "lg", externalHeading }: MgTableProps<T>): JSX.Element => {
     const { t } = useTranslation();
 
     const getCellContent = (item: T, col: MgTableColumn<T>): ReactNode => {
@@ -49,7 +51,7 @@ export const MgTable = <T extends { key: string },>({ items, columns, onClick, s
 
     function renderRow(item: T) {
         return (
-            <Table.Row key={item.key} onClick={() => onRowClick(item)}>
+            <Table.Row className={onClick ? "row-pointer" : ""} key={item.id} onClick={() => onRowClick(item)}>
                 {columns.map((col) => renderCell(item, col))}
             </Table.Row>
         )

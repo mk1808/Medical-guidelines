@@ -27,7 +27,7 @@ export interface Flow {
     disease: string;
     name: string;
     version: string;
-    created: string;
+    created: Date;
     author: string;
-    updated: string;
+    updated: Date;
 }
