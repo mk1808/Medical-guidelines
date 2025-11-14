@@ -24,10 +24,12 @@
   "loginAction": "Zaloguj",
   "registerHeader": "Utwórz nowe konto",
   "registerAction": "Zarejestruj",
+  "newFlow": "Nowe flow",
   "disease": "Choroba",
   "flowName": "Nazwa flow",
   "flowVersion": "Wersja",
   "created": "Data utworzenia",
   "author": "Autor",
-  "updated": "Data modyfikacji"
+  "updated": "Data modyfikacji",
+  "generalInformation": "Ogólne informacje"
 }
