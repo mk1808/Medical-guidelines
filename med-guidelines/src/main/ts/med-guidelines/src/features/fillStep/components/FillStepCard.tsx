@@ -1,7 +1,7 @@
-import { MgCard } from "@/components/ui";
-import type { ActionButtonProps } from "@/types/interfaces";
-import { Center, createListCollection, Field, Input, Portal, Select, Stack } from "@chakra-ui/react";
-import { type JSX } from "react";
+import { MgCard, MgSelect } from "@/components/ui";
+import type { ActionButtonProps, SelectValueProps } from "@/types/interfaces";
+import { Center, Stack } from "@chakra-ui/react";
+import { useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 interface FillStepCardProps {
     placeholder?: string;
@@ -22,14 +22,14 @@ export const FillStepCard = ({ placeholder }: FillStepCardProps): JSX.Element =>
         { onClick: () => console.log("save"), title: t("next") },
     ]
     const newText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "
-    const frameworks = createListCollection({
-        items: [
-            { label: "React.js", value: "react" },
-            { label: "Vue.js", value: "vue" },
-            { label: "Angular", value: "angular" },
-            { label: "Svelte", value: "svelte" },
-        ],
-    })
+    const frameworks: SelectValueProps<string>[] = [
+        { label: "React.js", value: "react", key: "react" },
+        { label: "Vue.js", value: "vue", key: "vue" },
+        { label: "Angular", value: "angular", key: "angular" },
+        { label: "Svelte", value: "svelte", key: "svelte" },
+    ];
+
+    const [selectedValue, setSelectedValue] = useState<string>();
 
     return (
         <MgCard heading={text} infoText={newText} externalHeading={externalHeading} buttons={buttons}>{renderContent()}</MgCard>
@@ -39,43 +39,13 @@ export const FillStepCard = ({ placeholder }: FillStepCardProps): JSX.Element =>
         return (
             <Center>
                 <Stack gap="4" w="500px" justifyContent="center">
-                    {renderSelect()}
-                    {renderSelect()}
-                    {renderSelect()}
-                    {renderSelect()}
+                    <MgSelect options={frameworks} placeholder="Select framework" label="Controlled selector" onSelect={setSelectedValue} value={selectedValue} />
+                    <MgSelect options={frameworks} placeholder="Select framework" label="Default constant value" value="angular" />
+                    <MgSelect options={frameworks} placeholder="Select framework" label="Only logging selector" onSelect={console.log} />
+                    <MgSelect options={frameworks} placeholder="Select framework" label="Select framework" invalid={true}/>
+                    <MgSelect options={frameworks} placeholder="Select framework" label="Select framework" />
                 </Stack>
             </Center>
-        )
-    }
-
-    function renderSelect() {
-        return (
-            <Field.Root mb="3" w="100%">
-                <Field.Label>First Name</Field.Label>
-                <Select.Root collection={frameworks} size="sm" w="100%">
-                    <Select.HiddenSelect />
-                    <Select.Control>
-                        <Select.Trigger>
-                            <Select.ValueText placeholder="Select framework" />
-                        </Select.Trigger>
-                        <Select.IndicatorGroup>
-                            <Select.Indicator />
-                        </Select.IndicatorGroup>
-                    </Select.Control>
-                    <Portal>
-                        <Select.Positioner>
-                            <Select.Content>
-                                {frameworks.items.map((framework) => (
-                                    <Select.Item item={framework} key={framework.value}>
-                                        {framework.label}
-                                        <Select.ItemIndicator />
-                                    </Select.Item>
-                                ))}
-                            </Select.Content>
-                        </Select.Positioner>
-                    </Portal>
-                </Select.Root>
-            </Field.Root>
         )
     }
 };

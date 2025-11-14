@@ -1,12 +1,24 @@
 import AuthLayout from "@/components/layouts/AuthLayout";
-import { Box, Button, Card, Center, Field, Flex, Heading, Input, Stack } from "@chakra-ui/react";
-import { type JSX } from "react";
+import { MgCard, MgInput } from "@/components/ui";
+import type { ActionButtonProps } from "@/types/interfaces";
+import { Stack } from "@chakra-ui/react";
+import { useMemo, useState, type JSX } from "react";
+import { useTranslation } from "react-i18next";
 
 interface RegistrationPageProps {
-    placeholder?: string;
+	placeholder?: string;
 }
 
 const RegistrationPage = ({ placeholder }: RegistrationPageProps): JSX.Element => {
+	const { t } = useTranslation();
+
+	const [login, setLogin] = useState<string>();
+	const [password, setPassword] = useState<string>();
+	const [confirmPassword, setConfirmPassword] = useState<string>();
+	const buttons: ActionButtonProps[] = useMemo(() => [
+		{ onClick: () => console.log("register"), title: t("registerAction") },
+	], [])
+
 	return (
 		<AuthLayout>
 			{renderCard()}
@@ -14,31 +26,16 @@ const RegistrationPage = ({ placeholder }: RegistrationPageProps): JSX.Element =
 	)
 
 	function renderCard() {
+		return <MgCard heading={t("registerHeader")} buttons={buttons} size="lg">{renderContent()}</MgCard>
+	}
+
+	function renderContent() {
 		return (
-			<Card.Root maxW="lg" minW="lg">
-				<Card.Header>
-					<Heading size="lg">Register</Heading>
-					<Card.Description>
-						Register
-					</Card.Description>
-				</Card.Header>
-				<Card.Body>
-					<Stack gap="4" w="full">
-						<Field.Root>
-							<Field.Label>First Name</Field.Label>
-							<Input />
-						</Field.Root>
-						<Field.Root>
-							<Field.Label>Last Name</Field.Label>
-							<Input />
-						</Field.Root>
-					</Stack>
-				</Card.Body>
-				<Card.Footer justifyContent="flex-end">
-					<Button variant="outline">Cancel</Button>
-					<Button variant="solid">Sign in</Button>
-				</Card.Footer>
-			</Card.Root>
+			<Stack gap="4" w="full">
+				<MgInput label={t("login")} value={login} onValueChange={setLogin} />
+				<MgInput label={t("password")} value={password} type="password" onValueChange={setPassword} />
+				<MgInput label={t("confirmPassword")} value={confirmPassword} type="password" onValueChange={setConfirmPassword} />
+			</Stack>
 		)
 	}
 };

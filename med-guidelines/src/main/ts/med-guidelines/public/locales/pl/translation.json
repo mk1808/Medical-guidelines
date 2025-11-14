@@ -15,5 +15,12 @@
   "flow": "flow",
   "forDisease": "dla choroby",
   "version": "wersja",
-  "availableFlows": "Obecnie dostępne są następujące flow: "
+  "availableFlows": "Obecnie dostępne są następujące flow:",
+  "loggingIn": "logowanie",
+  "login": "Login",
+  "password": "Hasło",
+  "confirmPassword": "Powtórz hasło",
+  "loginAction": "Zaloguj",
+  "registerHeader": "Utwórz nowe konto",
+  "registerAction": "Zarejestruj"
 }

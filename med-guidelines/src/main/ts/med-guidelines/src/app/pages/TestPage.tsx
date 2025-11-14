@@ -27,15 +27,19 @@ import {
     MgDataList,
     MgAccordion,
     MgCard,
-    MgTable
+    MgTable,
+    MgInput
 } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
+import { useRouterNavigate } from "@/hooks";
+
 
 
 const TestPage = (): JSX.Element => {
     const [count, setCount] = useState(0)
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const newText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "
 
 
@@ -70,6 +74,8 @@ const TestPage = (): JSX.Element => {
         { key: "5", name: "Headphones", category: "Accessories", price: 199.99 },
     ];
 
+    const [inputValue, setInputValue] = useState<string>();
+
     return (
         <div>
             <MgHeading text={t('welcome')} size='sm' />
@@ -81,6 +87,11 @@ const TestPage = (): JSX.Element => {
             <MgText text={t('welcome')} size='md' />
             <MgText text={t('welcome')} size='lg' />
             <MgText text={t('welcome')} />
+
+            <Box marginY="50px" w="1/2" marginX="auto">
+                <MgInput label="Input value" placeholder="Placeholder" value={inputValue} onValueChange={setInputValue} />
+                {inputValue}
+            </Box>
 
             <Box marginY="50px">
                 <MgDataList items={dataListItems} />
@@ -209,6 +220,8 @@ const TestPage = (): JSX.Element => {
             </Tabs.Root>
             {renderCard()}
             {renderTable()}
+            <Button onClick={() => navigate("login")}>take me to login</Button>
+            <Button onClick={() => navigate("back")}>take me back</Button>
         </div>
     )
 
