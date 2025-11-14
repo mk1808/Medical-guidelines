@@ -5,8 +5,8 @@ import MgText from "./MgText";
 import MgHeading from "./MgHeading";
 import type { MgTableColumn } from "@/types/interfaces";
 import { useTranslation } from "react-i18next";
-
 import './styles.scss'
+
 interface MgTableProps<T extends { id: string }> {
     items: T[];
     columns: MgTableColumn<T>[];
@@ -34,11 +34,12 @@ export const MgTable = <T extends { id: string },>({ items, columns, onClick, si
             <Table.Root size={size} variant="outline" interactive>
                 <Table.Header>
                     <Table.Row>
+                        {renderIndexColHeader()}
                         {columns.map((col) => renderColHeader(col))}
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                    {items.map((item) => renderRow(item))}
+                    {items.map((item, index: number) => renderRow(item, index))}
                 </Table.Body>
             </Table.Root>
         </Stack>
@@ -49,11 +50,24 @@ export const MgTable = <T extends { id: string },>({ items, columns, onClick, si
         return <Table.ColumnHeader textAlign={align} key={name}>{t(name)}</Table.ColumnHeader>
     }
 
-    function renderRow(item: T) {
+    function renderIndexColHeader() {
+        return <Table.ColumnHeader textAlign="start" key="index"/>
+    }
+
+    function renderRow(item: T, index: number) {
         return (
             <Table.Row className={onClick ? "row-pointer" : ""} key={item.id} onClick={() => onRowClick(item)}>
+                {renderIndex(index)}
                 {columns.map((col) => renderCell(item, col))}
             </Table.Row>
+        )
+    }
+
+    function renderIndex(index: number) {
+        return (
+            <Table.Cell textAlign="start" key={index}>
+                {index + 1}
+            </Table.Cell>
         )
     }
 

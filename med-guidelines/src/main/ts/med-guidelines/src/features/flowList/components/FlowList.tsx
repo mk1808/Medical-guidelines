@@ -1,7 +1,7 @@
 import { MgTable } from "@/components/ui";
 import type { Flow, MgTableColumn } from "@/types/interfaces";
 import { formatDate } from "@/utils/dateUtils";
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -16,7 +16,6 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
     const click = (item: Flow) => console.log(item);
 
     const tableColumns: MgTableColumn<Flow>[] = [
-        { name: "", key: "id", render: (item: Flow) => item.id },
         { name: "disease", key: "disease" },
         { name: "flowName", key: "name" },
         { name: "flowVersion", key: "version" },
