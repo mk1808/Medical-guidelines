@@ -31,5 +31,8 @@
   "created": "Creation date",
   "author": "Author",
   "updated": "Last update date",
-  "generalInformation": "General information"
+  "fillDate": "Fill date",
+  "patientId": "Patient id",
+  "generalInformation": "General information",
+  "treatmentHistoryList": "So far flows were completed for the following patients:"
 }

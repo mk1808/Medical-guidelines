@@ -31,5 +31,8 @@
   "created": "Data utworzenia",
   "author": "Autor",
   "updated": "Data modyfikacji",
-  "generalInformation": "Ogólne informacje"
+  "fillDate": "Data wypełnienia",
+  "patientId": "Id pacjenta",
+  "generalInformation": "Ogólne informacje",
+  "treatmentHistoryList": "Dotychczas wypełniono flow dla następujących pacjentów:"
 }
