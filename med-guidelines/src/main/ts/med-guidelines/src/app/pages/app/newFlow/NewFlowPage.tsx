@@ -1,5 +1,5 @@
 import CardLayout from "@/components/layouts/CardLayout";
-import { NewFlowCard } from "@/features/newFlow/components/NewFlowCard";
+import { NewFlowCard } from "@/features/newFlow";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface NewFlowPageProps {
