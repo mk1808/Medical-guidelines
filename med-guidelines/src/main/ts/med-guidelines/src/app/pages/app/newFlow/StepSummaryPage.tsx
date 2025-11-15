@@ -1,4 +1,5 @@
 import CardLayout from "@/components/layouts/CardLayout";
+import { StepSummaryCard } from "@/features/stepSummary";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface StepSummaryPageProps {
@@ -8,8 +9,7 @@ interface StepSummaryPageProps {
 const StepSummaryPage = ({ placeholder }: StepSummaryPageProps): JSX.Element => (
     <CardLayout>
         <Box>
-            <h1>StepSummaryPage component</h1>
-            {placeholder}
+            <StepSummaryCard />
         </Box>
     </CardLayout>
 
