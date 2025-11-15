@@ -34,5 +34,13 @@
   "fillDate": "Fill date",
   "patientId": "Patient id",
   "generalInformation": "General information",
-  "treatmentHistoryList": "So far flows were completed for the following patients:"
+  "treatmentHistoryList": "So far flows were completed for the following patients:",
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "open": "Open",
+  "copy": "Copy",
+  "checkHistory": "Show history",
+  "addNewFlow": "Add new flow",
+  "generalInformation": "General information"
 }
