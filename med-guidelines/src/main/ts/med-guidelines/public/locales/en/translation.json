@@ -12,6 +12,7 @@
   "close": "Close",
   "prev": "Back",
   "next": "Next",
+  "back": "Back",
   "step": "Step",
   "flow": "flow",
   "forDisease": "for disease",
@@ -33,7 +34,6 @@
   "updated": "Last update date",
   "fillDate": "Fill date",
   "patientId": "Patient id",
-  "generalInformation": "General information",
   "treatmentHistoryList": "So far flows were completed for the following patients:",
   "actions": "Actions",
   "edit": "Edit",
@@ -42,5 +42,7 @@
   "copy": "Copy",
   "checkHistory": "Show history",
   "addNewFlow": "Add new flow",
+  "generalInformation": "General information",
+  "flowModificationHistory": "Flow modification history",
   "treatmentSummary": "Filled flow summary"
 }
