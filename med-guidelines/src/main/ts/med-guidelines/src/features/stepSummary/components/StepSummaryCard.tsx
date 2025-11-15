@@ -1,7 +1,9 @@
-import { MgCard } from "@/components/ui";
+import { MgCard, MgDataList, MgHeading } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import { StepSummaryParameters } from "./StepSummaryParameters";
+import { Box } from "@chakra-ui/react";
 
 interface StepSummaryCardProps {
     placeholder?: string;
@@ -20,6 +22,13 @@ export const StepSummaryCard = ({ placeholder }: StepSummaryCardProps): JSX.Elem
     const flowName: string = "Disease X";
     const externalHeading: string = `${t("newFlow")}: ${flowName}`;
 
+    const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius.";
+    const dataListItems = [
+        { label: t("stepName"), value: "Step abc name" },
+        { label: t("stepDescription"), value: description }
+    ];
+
+
     return (
         <MgCard heading={heading} externalHeading={externalHeading} buttons={buttons}>
             {renderContent()}
@@ -35,15 +44,27 @@ export const StepSummaryCard = ({ placeholder }: StepSummaryCardProps): JSX.Elem
     }
 
     function renderMainInfo() {
-        return <></>
+        return <MgDataList items={dataListItems} />
+
     }
 
     function renderParameters() {
-        return <></>
+        return (
+            <>
+                <MgHeading text={t('parameters')} size='md' withSeparator />
+                <Box mt="4">
+                    <StepSummaryParameters />
+                </Box>
+            </>
+        )
     }
 
     function renderNextSteps() {
-        return <></>
+        return (
+            <>
+                <MgHeading text={t('nextSteps')} size='md' withSeparator />
+            </>
+        )
     }
 
 };
