@@ -1,4 +1,5 @@
 import TableLayout from "@/components/layouts/TableLayout";
+import { FlowHistory } from "@/features/flowHistory";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface FlowHistoryPageProps {
@@ -8,8 +9,7 @@ interface FlowHistoryPageProps {
 const FlowHistoryPage = ({ placeholder }: FlowHistoryPageProps): JSX.Element => (
     <TableLayout>
         <Box>
-            <h1>FlowHistoryPage component</h1>
-            {placeholder}
+            <FlowHistory />
         </Box>
     </TableLayout>
 );
