@@ -32,6 +32,19 @@ export interface Flow {
     updated: Date;
 }
 
+export interface FlowStepParameter {
+    name: string;
+    options: SelectValueProps<string>[];
+}
+
+export interface FlowStep {
+    id: string;
+    name: string;
+    description: string;
+    parameters: FlowStepParameter[];
+    nextStep: number | string;
+}
+
 export interface Step {
     id: string;
     created?: Date;
