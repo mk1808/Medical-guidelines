@@ -29,7 +29,7 @@ export const Tooltip = ({
 			<ChakraTooltip.Trigger asChild>{children}</ChakraTooltip.Trigger>
 			<Portal container={portalRef} disabled={!portalled}>
 				<ChakraTooltip.Positioner>
-					<ChakraTooltip.Content ref={ref} {...contentProps}>
+					<ChakraTooltip.Content ref={ref} {...contentProps}  bg="primary.50">
 						{showArrow ? (
 							<ChakraTooltip.Arrow>
 								<ChakraTooltip.ArrowTip />

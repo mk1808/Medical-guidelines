@@ -31,5 +31,12 @@
   "created": "Data utworzenia",
   "author": "Autor",
   "updated": "Data modyfikacji",
+  "actions": "Możliwe działania",
+  "edit": "Edytuj",
+  "delete": "Usuń",
+  "open": "Zobacz",
+  "copy": "Kopiuj",
+  "checkHistory": "Pokaż historię",
+  "addNewFlow": "Dodaj nowe flow",
   "generalInformation": "Ogólne informacje"
 }
