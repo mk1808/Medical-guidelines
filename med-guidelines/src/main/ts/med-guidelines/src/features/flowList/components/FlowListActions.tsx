@@ -1,4 +1,5 @@
-import { MgIconButton } from "@/components/ui/MgIconButton";
+
+import { MgIconButton } from "@/components/ui";
 import type { Flow } from "@/types/interfaces";
 import type { callbackFn } from "@/types/types";
 import { HStack } from "@chakra-ui/react";

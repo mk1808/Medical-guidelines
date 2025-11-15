@@ -59,7 +59,6 @@ const config = defineConfig({
                     muted: { value: "{colors.primary.100}" },
                 },
                 fg: { value: "{colors.primary.950}" },
-                tooltip: { value: "{colors.accent.500}" },
                 primary: {
                     solid: { value: "{colors.primary.500}" },
                     contrast: { value: "{colors.primary.100}" },
