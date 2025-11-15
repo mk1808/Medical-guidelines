@@ -60,7 +60,7 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
     )
 
     function renderAddButton() {
-        return <Button mb="4" size="lg">{t("addNewFlow")}</Button>
+        return isAdmin && <Button mb="4" size="lg">{t("addNewFlow")}</Button>
     }
 
     function renderActionButtons(item: Flow) {
