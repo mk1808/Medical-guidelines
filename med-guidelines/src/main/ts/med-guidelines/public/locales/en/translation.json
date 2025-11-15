@@ -43,5 +43,6 @@
   "checkHistory": "Show history",
   "addNewFlow": "Add new flow",
   "generalInformation": "General information",
-  "flowModificationHistory": "Flow modification history"
+  "flowModificationHistory": "Flow modification history",
+  "treatmentSummary": "Filled flow summary"
 }

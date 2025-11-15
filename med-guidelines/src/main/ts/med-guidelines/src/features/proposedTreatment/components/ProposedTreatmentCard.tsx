@@ -1,9 +1,9 @@
-import { MgCard, MgList } from "@/components/ui";
+import { MgCard } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { formCardExternalHeading } from "@/utils/cardUtils";
-import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import { ProposedTreatmentList } from "./ProposedTreatmentList";
 
 interface ProposedTreatmentCardProps {
     placeholder?: string;
@@ -37,18 +37,13 @@ export const ProposedTreatmentCard = ({ placeholder }: ProposedTreatmentCardProp
         "et semper arcu eleifend"
     ];
 
-
     return (
-        <MgCard heading={text} infoText={newText} externalHeading={externalHeading} buttons={buttons}>
+        <MgCard heading={text} externalHeading={externalHeading} buttons={buttons}>
             {renderContent()}
         </MgCard>
     )
 
     function renderContent() {
-        return (
-            <Box marginLeft="20px">
-                <MgList items={treatmentSteps} />
-            </Box>
-        )
+        return <ProposedTreatmentList infoText={newText} treatmentSteps={treatmentSteps}/>
     }
 };

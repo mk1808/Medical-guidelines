@@ -43,5 +43,6 @@
   "checkHistory": "Pokaż historię",
   "addNewFlow": "Dodaj nowe flow",
   "generalInformation": "Ogólne informacje",
-  "flowModificationHistory": "Historia modyfikacji flow"
+  "flowModificationHistory": "Historia modyfikacji flow",
+  "treatmentSummary": "Podsumowanie wypełnienia flow"
 }
