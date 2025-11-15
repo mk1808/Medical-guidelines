@@ -44,5 +44,11 @@
   "addNewFlow": "Add new flow",
   "generalInformation": "General information",
   "flowModificationHistory": "Flow modification history",
-  "treatmentSummary": "Filled flow summary"
+  "treatmentSummary": "Filled flow summary",
+  "stepName": "Step name",
+  "stepDescription": "Step description",
+  "parameters": "Parameters",
+  "nextSteps": "Next steps",
+  "stepId": "Id",
+  "conditions": "Conditions"
 }

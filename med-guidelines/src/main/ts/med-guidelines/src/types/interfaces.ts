@@ -45,6 +45,16 @@ export interface FlowStep {
     nextStep: number | string;
 }
 
+export interface Step {
+    id: string;
+    created?: Date;
+    updated?: Date;
+    name: string;
+    author?: string;
+    parameters?: any[];
+    nextSteps?: any[];
+}
+
 export interface TreatmentHistory {
     id: string;
     disease: string;
