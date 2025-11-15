@@ -48,5 +48,7 @@
   "stepName": "Nazwa kroku",
   "stepDescription": "Opis kroku",
   "parameters": "Parametry",
-  "nextSteps": "Kolejne kroki"
+  "nextSteps": "Kolejne kroki",
+  "stepId": "Id",
+  "conditions": "Warunki"
 }

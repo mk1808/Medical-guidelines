@@ -48,5 +48,7 @@
   "stepName": "Step name",
   "stepDescription": "Step description",
   "parameters": "Parameters",
-  "nextSteps": "Next steps"
+  "nextSteps": "Next steps",
+  "stepId": "Id",
+  "conditions": "Conditions"
 }

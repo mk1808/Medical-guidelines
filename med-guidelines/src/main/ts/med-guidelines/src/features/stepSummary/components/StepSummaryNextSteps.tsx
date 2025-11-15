@@ -1,37 +1,50 @@
 import { MgTable } from "@/components/ui";
-import type { Flow, MgTableColumn } from "@/types/interfaces";
+import type { MgTableColumn, Step } from "@/types/interfaces";
 import { formatDate } from "@/utils/dateUtils";
 import { useMemo, type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import { StepSummaryNextStepsActions } from "./StepSummaryNextStepsActions";
 
 interface StepSummaryNextStepsProps {
-    placeholder?: string;
+    step?: any;
 }
 
-export const StepSummaryNextSteps = ({ placeholder }: StepSummaryNextStepsProps): JSX.Element => {
+export const StepSummaryNextSteps = ({ step }: StepSummaryNextStepsProps): JSX.Element => {
 
     const { t } = useTranslation();
 
+    const click = (item: Step) => console.log(item)
 
-    const click = (item: Flow) => console.log(item)
-
-    const columns: MgTableColumn<Flow>[] = useMemo(() => [
-        { name: "flowVersion", key: "version" },
-        { name: "updated", key: "updated", render: (item: Flow) => formatDate(item.updated) },
-        { name: "author", key: "author" },
+    const columns: MgTableColumn<Step>[] = useMemo(() => [
+        { name: "stepId", key: "stepId" },
+        { name: "stepName", key: "name" },
+        { name: "updated", key: "updated", render: (item: Step) => formatDate(item.created) },
+        { name: "conditions", key: "conditions", render: (item: Step) => renderConditions(item) },
+        { name: "actions", key: "actions", render: renderActionButtons }
     ], []);
 
-    const tableItems: Flow[] = [
-        { id: "11", name: "New flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
-        { id: "22", name: "Fixed flow", disease: "Breast cancer", version: "2025.04", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
-        { id: "33", name: "New flow", disease: "Lung cancer", version: "2025.05", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
-    ];
+    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("open" + item.id) }
+    const deleteF = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("delete" + item.id) }
+    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("edit" + item.id) }
 
     return (
         <MgTable
-            items={tableItems}
+            items={step.nextSteps}
             columns={columns}
             showRowNumber={true}
             onClick={click} />
     )
+
+    function renderConditions(nextStep: any) {
+        return nextStep?.conditions?.map((condition: any, index: number) => <p key={index}>{`${condition.param}: ${condition.value} `}</p>)
+    }
+
+    function renderActionButtons(item: any) {
+        return (
+            <StepSummaryNextStepsActions
+                open={(e) => open(e, item)}
+                edit={(e) => edit(e, item)}
+                deleteF={(e) => deleteF(e, item)} />
+        )
+    }
 };

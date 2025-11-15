@@ -29,6 +29,13 @@ export const StepSummaryCard = ({ placeholder }: StepSummaryCardProps): JSX.Elem
         { label: t("stepDescription"), value: description }
     ];
 
+    const step: any = {
+        nextSteps: [
+            { stepId: 11, name: "step 1 name", conditions: [{ param: "param 1", value: "value 2" }] },
+            { stepId: 22, name: "step 2 name", conditions: [{ param: "param 1", value: "value 1" }] },
+            { stepId: 33, name: "step 3 name", conditions: [{ param: "param 1", value: "value 3" }, { param: "param 2", value: "value 1" }] },
+        ]
+    }
 
     return (
         <MgCard heading={heading} externalHeading={externalHeading} buttons={buttons}>
@@ -66,7 +73,7 @@ export const StepSummaryCard = ({ placeholder }: StepSummaryCardProps): JSX.Elem
             <>
                 <MgHeading text={t('nextSteps')} size='md' withSeparator />
                 <Box mt="4">
-                    <StepSummaryNextSteps />
+                    <StepSummaryNextSteps step={step} />
                 </Box>
             </>
         )
