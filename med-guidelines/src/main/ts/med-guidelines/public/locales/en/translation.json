@@ -30,5 +30,10 @@
   "created": "Creation date",
   "author": "Author",
   "updated": "Last update date",
-  "actions": "Actions"
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "open": "Open",
+  "copy": "Copy",
+  "checkHistory": "Show history"
 }
