@@ -1,5 +1,4 @@
-import { MgAccordion, MgCard, MgDataList, MgList } from "@/components/ui";
-import { ProposedTreatmentList } from "@/features/proposedTreatment/components/ProposedTreatmentList";
+import { MgCard } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { formCardExternalHeading } from "@/utils/cardUtils";
 import { Box } from "@chakra-ui/react";

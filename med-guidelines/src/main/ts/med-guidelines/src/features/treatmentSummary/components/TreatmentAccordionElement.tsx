@@ -1,5 +1,5 @@
 import { MgAccordion, MgDataList } from "@/components/ui";
-import { ProposedTreatmentList } from "@/features/proposedTreatment/components/ProposedTreatmentList";
+import { ProposedTreatmentList } from "@/features/proposedTreatment"
 import type { JSX } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -21,7 +21,7 @@ export const TreatmentAccordionElement = ({ placeholder }: TreatmentAccordionEle
     const treatmentStepName = "Proposed treatment";
     const treatmentStepInfoText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "
 
-    const stepNoWithName = (stepNo: number, stepName: string) => [`${t("step")} ${stepNo}: ${stepName}`];
+    const stepNoWithName = (stepNo: number, stepName: string) => `${t("step")} ${stepNo}: ${stepName}`;
 
     const dataListItems = [
         { label: "Param 1", value: "value 1" },
