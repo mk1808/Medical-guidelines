@@ -262,6 +262,7 @@ const TestPage = (): JSX.Element => {
                     <Field.Label>Last Name</Field.Label>
                     <Input />
                 </Field.Root>
+                <MgHeading text={t('welcome')} size='md' withSeparator />
             </Stack>
         )
     }
