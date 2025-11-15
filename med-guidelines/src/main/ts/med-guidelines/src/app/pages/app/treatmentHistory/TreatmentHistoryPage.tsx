@@ -1,4 +1,5 @@
 import TableLayout from "@/components/layouts/TableLayout";
+import { TreatmentHistoryList } from "@/features/treatmentHistory";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface TreatmentHistoryPageProps {
@@ -8,8 +9,7 @@ interface TreatmentHistoryPageProps {
 const TreatmentHistoryPage = ({ placeholder }: TreatmentHistoryPageProps): JSX.Element => (
     <TableLayout>
         <Box>
-            <h1>TreatmentHistoryPage component</h1>
-            {placeholder}
+            <TreatmentHistoryList />
         </Box>
     </TableLayout>
 );

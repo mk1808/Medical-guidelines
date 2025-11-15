@@ -31,3 +31,13 @@ export interface Flow {
     author: string;
     updated: Date;
 }
+
+export interface TreatmentHistory {
+    id: string;
+    disease: string;
+    name: string;
+    version: string;
+    patientId: string;
+    created: Date;
+    updated: Date;
+}
