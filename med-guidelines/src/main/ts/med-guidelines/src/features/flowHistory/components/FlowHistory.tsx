@@ -42,12 +42,12 @@ export const FlowHistory = ({ placeholder }: FlowHistoryProps): JSX.Element => {
                 onClick={click} />
 
             <Box textAlign="end" marginY="20px">
-                {renderAddButton()}
+                {renderButton()}
             </Box>
         </Box>
     )
 
-    function renderAddButton() {
+    function renderButton() {
         return (
             <MgActionButtons buttons={buttons} />
         )
