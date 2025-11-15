@@ -21,12 +21,16 @@ export const MgHeading = ({ text, size = "md", firstUppercase = false, withSepar
         }
     }
 
-    return withSeparator ? (
-        <Box>
-            <Separator size="lg" mt="10" mb="3" />
-            {renderHeading()}
-        </Box>
-    ) : renderHeading();
+    if (withSeparator) {
+        return (
+            <Box>
+                <Separator size="lg" mt="10" mb="3" />
+                {renderHeading()}
+            </Box>
+        )
+    }
+
+    return renderHeading();
 
     function renderHeading() {
         return <Heading size={headingSize} className={firstUppercase ? "first-letter-upperrcase" : ""}>{text}</Heading>
