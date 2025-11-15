@@ -3,6 +3,7 @@ import { type JSX } from "react";
 import MgText from "./MgText";
 
 interface ItemType {
+    id: number,
     label: string,
     value: React.ReactNode | string
 }
@@ -15,13 +16,13 @@ export const MgAccordion = ({ items = [] }: MgAccordionProps): JSX.Element => {
 
     return (
         <Accordion.Root multiple size="lg" variant="enclosed">
-            {items.map((item, index) => (
-                <Accordion.Item key={index} value={item.label}>
-                    <Accordion.ItemTrigger>
+            {items.map((item) => (
+                <Accordion.Item key={item.id} value={item.label}>
+                    <Accordion.ItemTrigger _open={{ bg: "primary.muted" }}>
                         <Span flex="1">{item.label}</Span>
                         <Accordion.ItemIndicator />
                     </Accordion.ItemTrigger>
-                    <Accordion.ItemContent>
+                    <Accordion.ItemContent mt="4">
                         <Accordion.ItemBody>{renderContent(item)}</Accordion.ItemBody>
                     </Accordion.ItemContent>
                 </Accordion.Item>
