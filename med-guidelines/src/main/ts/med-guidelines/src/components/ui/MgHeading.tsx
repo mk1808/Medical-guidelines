@@ -1,13 +1,14 @@
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading, Separator } from "@chakra-ui/react";
 import { useMemo, type JSX } from "react";
 
 interface MgHeadingProps {
     text: string;
     size?: "sm" | "md" | "lg";
-    firstUppercase?: boolean
+    firstUppercase?: boolean;
+    withSeparator?: boolean
 }
 
-export const MgHeading = ({ text, size = "md", firstUppercase = false }: MgHeadingProps): JSX.Element => {
+export const MgHeading = ({ text, size = "md", firstUppercase = false, withSeparator = false }: MgHeadingProps): JSX.Element => {
 
     const headingSize = useMemo(getHeadingSize, [size]);
 
@@ -20,9 +21,16 @@ export const MgHeading = ({ text, size = "md", firstUppercase = false }: MgHeadi
         }
     }
 
-    return (
-        <Heading size={headingSize} className={firstUppercase ? "first-letter-upperrcase" : ""}>{text}</Heading>
-    );
+    return withSeparator ? (
+        <Box>
+            <Separator size="lg" mt="10" mb="3" />
+            {renderHeading()}
+        </Box>
+    ) : renderHeading();
+
+    function renderHeading() {
+        return <Heading size={headingSize} className={firstUppercase ? "first-letter-upperrcase" : ""}>{text}</Heading>
+    }
 }
 
 export default MgHeading;
