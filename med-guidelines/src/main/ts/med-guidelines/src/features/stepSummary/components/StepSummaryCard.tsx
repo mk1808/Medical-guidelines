@@ -4,6 +4,7 @@ import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { StepSummaryParameters } from "./StepSummaryParameters";
 import { Box } from "@chakra-ui/react";
+import { StepSummaryNextSteps } from "./StepSummaryNextSteps";
 
 interface StepSummaryCardProps {
     placeholder?: string;
@@ -36,16 +37,17 @@ export const StepSummaryCard = ({ placeholder }: StepSummaryCardProps): JSX.Elem
     )
 
     function renderContent() {
-        return (<>
-            {renderMainInfo()}
-            {renderParameters()}
-            {renderNextSteps()}
-        </>)
+        return (
+            <>
+                {renderMainInfo()}
+                {renderParameters()}
+                {renderNextSteps()}
+            </>
+        )
     }
 
     function renderMainInfo() {
         return <MgDataList items={dataListItems} />
-
     }
 
     function renderParameters() {
@@ -63,6 +65,9 @@ export const StepSummaryCard = ({ placeholder }: StepSummaryCardProps): JSX.Elem
         return (
             <>
                 <MgHeading text={t('nextSteps')} size='md' withSeparator />
+                <Box mt="4">
+                    <StepSummaryNextSteps />
+                </Box>
             </>
         )
     }

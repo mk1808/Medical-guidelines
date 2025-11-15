@@ -1,5 +1,5 @@
-import { MgCard, MgDataList, MgHeading, MgTable } from "@/components/ui";
-import type { ActionButtonProps, Flow, MgTableColumn } from "@/types/interfaces";
+import { MgTable } from "@/components/ui";
+import type { Flow, MgTableColumn } from "@/types/interfaces";
 import { formatDate } from "@/utils/dateUtils";
 import { useMemo, type JSX } from "react";
 import { useTranslation } from "react-i18next";
@@ -27,7 +27,6 @@ export const StepSummaryNextSteps = ({ placeholder }: StepSummaryNextStepsProps)
         { id: "33", name: "New flow", disease: "Lung cancer", version: "2025.05", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
     ];
 
-
     return (
         <MgTable
             items={tableItems}
@@ -35,8 +34,4 @@ export const StepSummaryNextSteps = ({ placeholder }: StepSummaryNextStepsProps)
             showRowNumber={true}
             onClick={click} />
     )
-
-
-
-
 };
