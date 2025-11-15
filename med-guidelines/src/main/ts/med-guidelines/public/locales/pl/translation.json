@@ -29,5 +29,6 @@
   "flowVersion": "Wersja",
   "created": "Data utworzenia",
   "author": "Autor",
-  "updated": "Data modyfikacji"
+  "updated": "Data modyfikacji",
+  "actions": "Możliwe działania"
 }
