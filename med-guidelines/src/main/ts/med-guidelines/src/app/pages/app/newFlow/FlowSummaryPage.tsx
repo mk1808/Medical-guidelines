@@ -1,4 +1,5 @@
 import CardLayout from "@/components/layouts/CardLayout";
+import { FlowSummaryCard } from "@/features/flowSummary";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface FlowSummaryPageProps {
@@ -8,8 +9,7 @@ interface FlowSummaryPageProps {
 const FlowSummaryPage = ({ placeholder }: FlowSummaryPageProps): JSX.Element => (
     <CardLayout>
         <Box>
-            <h1>FlowSummaryPage component</h1>
-            {placeholder}
+            <FlowSummaryCard />
         </Box>
     </CardLayout>
 );

@@ -50,5 +50,7 @@
   "parameters": "Parametry",
   "nextSteps": "Kolejne kroki",
   "stepId": "Id",
-  "conditions": "Warunki"
+  "conditions": "Warunki",
+  "flowSummary": "Podsumowanie flow",
+  "steps": "Kroki"
 }
