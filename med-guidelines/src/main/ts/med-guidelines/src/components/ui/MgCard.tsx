@@ -12,7 +12,8 @@ interface MgCardProps {
     externalHeading?: string,
     size?: "sm" | "md" | "lg" | "6xl";
     infoText?: string,
-    buttons: ActionButtonProps[]
+    buttons: ActionButtonProps[],
+    externalHeadingAdditionalInfo?: ReactNode,
 }
 
 export const MgCard = ({
@@ -21,7 +22,8 @@ export const MgCard = ({
     externalHeading,
     size = "6xl",
     infoText,
-    buttons
+    buttons,
+    externalHeadingAdditionalInfo
 }: MgCardProps): JSX.Element => {
 
     return (
@@ -35,10 +37,23 @@ export const MgCard = ({
 
     function renderExternalHeading() {
         return externalHeading != null && (
-            <Box width={size} mb={1}>
-                <MgHeading text={externalHeading} firstUppercase/>
-            </Box>
+            <Stack width={size} mb={1} direction="row" align="center">
+                <MgHeading text={externalHeading} firstUppercase />
+                {renderExternalHeadingAdditionalInfo()}
+            </Stack>
         )
+    }
+
+    function renderExternalHeadingAdditionalInfo() {
+        if (externalHeadingAdditionalInfo) {
+            return (
+                <Box marginLeft="auto">
+                    {externalHeadingAdditionalInfo}
+                </Box>
+            )
+        }
+
+        return <></>
     }
 
     function renderCard() {
@@ -61,7 +76,7 @@ export const MgCard = ({
 
     function renderHeading() {
         if (typeof heading === "string") {
-            return <MgHeading size="md" text={heading} firstUppercase/>
+            return <MgHeading size="md" text={heading} firstUppercase />
         }
         if (Array.isArray(heading)) {
             return renderHeadingWithGrid(heading);

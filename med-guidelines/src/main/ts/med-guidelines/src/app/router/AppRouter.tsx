@@ -33,6 +33,10 @@ const AppRoutes = createBrowserRouter([
         Component: TreatmentHistoryPage,
     },
     {
+        path: "/treatmentSummary/:afterSave",
+        Component: TreatmentSummaryPage,
+    }, 
+    {
         path: "/treatmentSummary",
         Component: TreatmentSummaryPage,
     },
