@@ -18,7 +18,7 @@ export const useRouterNavigate = () => {
             case "flowHistory": return "/flowHistory";
             case "flowSummary": return "/flowSummary";
             case "flowList": return "/flowList";
-            case "flowStep": return "/flowStep";
+            case "flowStep": return `/flowStep/${additionalParams.stepId}`;
             case "proposedTreatment": return "/proposedTreatment";
             case "test": return "/test";
 

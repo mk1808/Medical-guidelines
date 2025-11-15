@@ -35,7 +35,7 @@ const AppRoutes = createBrowserRouter([
     {
         path: "/treatmentSummary/:afterSave",
         Component: TreatmentSummaryPage,
-    }, 
+    },
     {
         path: "/treatmentSummary",
         Component: TreatmentSummaryPage,
@@ -66,6 +66,10 @@ const AppRoutes = createBrowserRouter([
     },
     {
         path: "/flowStep",
+        Component: FillStepPage,
+    },
+    {
+        path: "/flowStep/:stepId",
         Component: FillStepPage,
     },
     {

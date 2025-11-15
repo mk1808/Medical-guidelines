@@ -4,6 +4,7 @@ import { formCardExternalHeading } from "@/utils/cardUtils";
 import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { ProposedTreatmentList } from "./ProposedTreatmentList";
+import { useRouterNavigate } from "@/hooks";
 
 interface ProposedTreatmentCardProps {
     placeholder?: string;
@@ -12,7 +13,8 @@ interface ProposedTreatmentCardProps {
 export const ProposedTreatmentCard = ({ placeholder }: ProposedTreatmentCardProps): JSX.Element => {
 
     const { t } = useTranslation();
-    const stepNo = 3;
+    const { navigate } = useRouterNavigate();
+    const stepNo = 4;
     const stepName = "Proposed treatment";
 
     const text = [`${t("step")} ${stepNo}`, stepName];
@@ -23,9 +25,13 @@ export const ProposedTreatmentCard = ({ placeholder }: ProposedTreatmentCardProp
     const externalHeading = formCardExternalHeading({ flowName, disease, version });
 
     const buttons: ActionButtonProps[] = [
-        { onClick: () => console.log("prev"), title: t("prev"), variant: "outline" },
+        { onClick: navigateBack, title: t("prev"), variant: "outline" },
         { onClick: () => console.log("close"), title: t("close") },
     ]
+
+    function navigateBack() {
+        navigate("back")
+    }
 
     const newText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "
 
@@ -44,6 +50,6 @@ export const ProposedTreatmentCard = ({ placeholder }: ProposedTreatmentCardProp
     )
 
     function renderContent() {
-        return <ProposedTreatmentList infoText={newText} treatmentSteps={treatmentSteps}/>
+        return <ProposedTreatmentList infoText={newText} treatmentSteps={treatmentSteps} />
     }
 };
