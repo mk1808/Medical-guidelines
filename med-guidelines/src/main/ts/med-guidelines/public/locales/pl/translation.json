@@ -35,5 +35,6 @@
   "delete": "Usuń",
   "open": "Zobacz",
   "copy": "Kopiuj",
-  "checkHistory": "Pokaż historię"
+  "checkHistory": "Pokaż historię",
+  "addNewFlow": "Dodaj nowe flow"
 }

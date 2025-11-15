@@ -1,7 +1,7 @@
 import { MgTable } from "@/components/ui";
 import type { Flow, MgTableColumn } from "@/types/interfaces";
 import { formatDate } from "@/utils/dateUtils";
-import { Box } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { useMemo, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
@@ -46,6 +46,10 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
     const checkHistory = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("checkHistory" + item.id) }
     return (
         <Box w="1500px">
+            <Box textAlign="end">
+                {renderAddButton()}
+            </Box>
+
             <MgTable
                 items={tableItems}
                 columns={columns}
@@ -54,6 +58,10 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
                 onClick={(item) => click(item)} />
         </Box>
     )
+
+    function renderAddButton() {
+        return <Button mb="4" size="lg">{t("addNewFlow")}</Button>
+    }
 
     function renderActionButtons(item: Flow) {
         return <FlowListActions

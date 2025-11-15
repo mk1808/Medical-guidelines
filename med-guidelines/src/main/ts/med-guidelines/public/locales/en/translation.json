@@ -35,5 +35,6 @@
   "delete": "Delete",
   "open": "Open",
   "copy": "Copy",
-  "checkHistory": "Show history"
+  "checkHistory": "Show history",
+  "addNewFlow": "Add new flow"
 }
