@@ -1,10 +1,11 @@
-import { MgCard } from "@/components/ui";
+import { MgCard, MgDataList } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { formCardExternalHeading } from "@/utils/cardUtils";
 import { Box } from "@chakra-ui/react";
-import { type JSX } from "react";
+import { useMemo, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { TreatmentAccordionElement } from "./TreatmentAccordionElement";
+import { formatDate } from "@/utils/dateUtils";
 
 interface TreatmentSummaryCardProps {
     placeholder?: string;
@@ -26,8 +27,20 @@ export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps)
         { onClick: () => console.log("close"), title: t("close") },
     ]
 
+    const externalHeadingAdditionalInfoData = useMemo(() => [
+        { label: t("patientId"), value: "05/08/2025" },
+        { label: t("fillDate"), value: formatDate(new Date()) },
+    ], [])
+
+
     return (
-        <MgCard heading={heading} infoText={treatmentSummaryText} externalHeading={externalHeading} buttons={buttons}>
+        <MgCard
+            heading={heading}
+            infoText={treatmentSummaryText}
+            externalHeading={externalHeading}
+            buttons={buttons}
+            externalHeadingAdditionalInfo={renderExternalHeadingAdditionalInfo()}
+        >
             {renderContent()}
         </MgCard>
     )
@@ -35,8 +48,14 @@ export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps)
     function renderContent() {
         return (
             <Box>
-                <TreatmentAccordionElement/>
+                <TreatmentAccordionElement />
             </Box>
+        )
+    }
+
+    function renderExternalHeadingAdditionalInfo() {
+        return (
+            <MgDataList items={externalHeadingAdditionalInfoData} />
         )
     }
 
