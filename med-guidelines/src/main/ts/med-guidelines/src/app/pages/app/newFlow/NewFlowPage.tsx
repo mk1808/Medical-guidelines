@@ -1,4 +1,5 @@
 import CardLayout from "@/components/layouts/CardLayout";
+import { NewFlowCard } from "@/features/newFlow";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface NewFlowPageProps {
@@ -8,8 +9,7 @@ interface NewFlowPageProps {
 const NewFlowPage = ({ placeholder }: NewFlowPageProps): JSX.Element => (
     <CardLayout>
         <Box>
-            <h1>NewFlowPage component</h1>
-            {placeholder}
+            <NewFlowCard />
         </Box>
     </CardLayout>
 );

@@ -24,6 +24,7 @@
   "loginAction": "Zaloguj",
   "registerHeader": "Utwórz nowe konto",
   "registerAction": "Zarejestruj",
+  "newFlow": "Nowe flow",
   "disease": "Choroba",
   "flowName": "Nazwa flow",
   "flowVersion": "Wersja",
@@ -36,5 +37,6 @@
   "open": "Zobacz",
   "copy": "Kopiuj",
   "checkHistory": "Pokaż historię",
-  "addNewFlow": "Dodaj nowe flow"
+  "addNewFlow": "Dodaj nowe flow",
+  "generalInformation": "Ogólne informacje"
 }

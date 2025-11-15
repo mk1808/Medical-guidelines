@@ -24,6 +24,7 @@
   "loginAction": "Sign in",
   "registerHeader": "Create new account",
   "registerAction": "Sign up",
+  "newFlow": "New flow",
   "disease": "Disease",
   "flowName": "Flow name",
   "flowVersion": "Version",
@@ -36,5 +37,6 @@
   "open": "Open",
   "copy": "Copy",
   "checkHistory": "Show history",
-  "addNewFlow": "Add new flow"
+  "addNewFlow": "Add new flow",
+  "generalInformation": "General information"
 }
