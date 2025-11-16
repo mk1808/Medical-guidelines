@@ -9,7 +9,8 @@ interface MgSelectProps<T> {
     label: string;
     value?: string;
     onSelect?: callbackFn<T>;
-    invalid?: boolean
+    invalid?: boolean;
+    zIndex?: number;
 }
 
 export const MgSelect = <T,>({
@@ -18,7 +19,8 @@ export const MgSelect = <T,>({
     label,
     value,
     onSelect,
-    invalid
+    invalid,
+    zIndex
 }: MgSelectProps<T>): JSX.Element => {
 
     const optionsCollection = useMemo(() => createListCollection({ items: options }), [options]);
@@ -45,7 +47,7 @@ export const MgSelect = <T,>({
                 </Select.Control>
                 <Portal>
                     <Select.Positioner>
-                        <Select.Content>
+                        <Select.Content zIndex={zIndex}>
                             {optionsCollection.items.map((option) => (
                                 <Select.Item item={option} key={option.key}>
                                     {option.label}
