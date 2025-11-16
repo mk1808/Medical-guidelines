@@ -35,6 +35,7 @@ import {
 import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
 import { useRouterNavigate } from "@/hooks";
+import { TestDialog } from "@/features/auth";
 
 
 
@@ -89,6 +90,8 @@ const TestPage = (): JSX.Element => {
             <MgText text={t('welcome')} size='md' />
             <MgText text={t('welcome')} size='lg' />
             <MgText text={t('welcome')} />
+
+            <TestDialog/>
 
             <Box marginY="50px" w="1/2" marginX="auto">
                 <MgInput label="Input value" placeholder="Placeholder" value={inputValue} onValueChange={setInputValue} />
