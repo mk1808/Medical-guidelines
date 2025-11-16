@@ -5,15 +5,17 @@ import { useTranslation } from "react-i18next";
 import { Box } from "@chakra-ui/react";
 import { FlowStepsTable } from "./FlowStepsTable";
 import { useSteps } from "../hooks/useSteps";
+import { useRouterNavigate } from "@/hooks";
 
 export const FlowSummaryCard = (): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const { getSteps } = useSteps();
 
     const buttons: ActionButtonProps[] = [
-        { onClick: () => console.log("close"), title: t("close"), variant: "outline" },
-        { onClick: () => console.log("edit"), title: t("edit") },
+        { onClick: () => navigate("back"), title: t("prev"), variant: "outline" },
+        { onClick: () => navigate("newFlow"), title: t("edit") },
     ]
 
     const heading: string = t("flowSummary");

@@ -1,6 +1,7 @@
 
 import { MgInput } from "@/components/ui";
 import MgDialog from "@/components/ui/MgDialog";
+import { useRouterNavigate } from "@/hooks";
 import type { callbackFn } from "@/types/types";
 import { Button, useDialog } from "@chakra-ui/react";
 import { useEffect, useState, type JSX, type ReactNode } from "react";
@@ -15,6 +16,7 @@ interface SaveTreatmentDialogProps {
 export const SaveTreatmentDialog = ({ isOpen = false, dialogOpenChange }: SaveTreatmentDialogProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const dialog = useDialog();
     const [patientId, setPatientId] = useState<string>();
 
@@ -29,8 +31,8 @@ export const SaveTreatmentDialog = ({ isOpen = false, dialogOpenChange }: SaveTr
     }, [isOpen])
 
     const save = () => {
-        console.log('saved', patientId);
         dialog.setOpen(false);
+        navigate("treatmentSummaryAfterSave")
     }
 
     return (

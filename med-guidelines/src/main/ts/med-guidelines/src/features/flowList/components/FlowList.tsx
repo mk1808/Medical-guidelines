@@ -6,6 +6,7 @@ import { useMemo, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
 import { FlowListActions } from "./FlowListActions";
+import { useRouterNavigate } from "@/hooks";
 
 interface FlowListProps {
     placeholder?: string;
@@ -15,10 +16,11 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
 
     const { t } = useTranslation();
     const { role } = useParams();
+    const { navigate } = useRouterNavigate();
     const isAdmin: boolean = role === "admin";
 
     const heading = t("availableFlows");
-    const click = (item: Flow) => console.log(item);
+    const click = (item: Flow) => navigate("flowStep", { stepId: 0});
     const columnForAdmin: MgTableColumn<Flow> = useMemo(() => ({ name: "actions", key: "actions", render: renderActionButtons }), []);
     const standardColumns: MgTableColumn<Flow>[] = useMemo(() => [
         { name: "disease", key: "disease" },
@@ -39,11 +41,11 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
         { id: "33", name: "New flow", disease: "Lung cancer", version: "2025.05", created: new Date(), updated: new Date(), author: "jan.kowalski@gmail.com" },
     ];
 
-    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("open" + item.id) }
-    const deleteF = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("delete" + item.id) }
-    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("edit" + item.id) }
-    const copy = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("copy" + item.id) }
-    const checkHistory = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("checkHistory" + item.id) }
+    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("open" + item.id); navigate("flowSummary") }
+    const deleteF = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("delete" + item.id); }
+    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("edit" + item.id); navigate("flowSummary") }
+    const copy = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("copy" + item.id);  }
+    const checkHistory = (event: React.MouseEvent<HTMLButtonElement>, item: Flow) => { event.stopPropagation(); console.log("checkHistory" + item.id); navigate("flowHistory") }
     return (
         <Box w="1500px">
             <Box textAlign="end">
@@ -60,7 +62,7 @@ export const FlowList = ({ placeholder }: FlowListProps): JSX.Element => {
     )
 
     function renderAddButton() {
-        return isAdmin && <Button mb="4" size="lg">{t("addNewFlow")}</Button>
+        return isAdmin && <Button mb="4" size="lg" onClick={()=>navigate("newFlow")}>{t("addNewFlow")}</Button>
     }
 
     function renderActionButtons(item: Flow) {

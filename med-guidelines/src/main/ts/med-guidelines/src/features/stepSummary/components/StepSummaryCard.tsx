@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { StepSummaryParameters } from "./StepSummaryParameters";
 import { Box } from "@chakra-ui/react";
 import { StepSummaryNextSteps } from "./StepSummaryNextSteps";
+import { useRouterNavigate } from "@/hooks";
 
 interface StepSummaryCardProps {
     placeholder?: string;
@@ -13,10 +14,11 @@ interface StepSummaryCardProps {
 export const StepSummaryCard = ({ placeholder }: StepSummaryCardProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
 
     const buttons: ActionButtonProps[] = [
-        { onClick: () => console.log("prev"), title: t("prev"), variant: "outline" },
-        { onClick: () => console.log("close"), title: t("close") },
+        { onClick: () => navigate("back"), title: t("prev"), variant: "outline" },
+        { onClick: () => navigate("flowListAdmin"), title: t("save") },
     ]
     const stepNo = 1;
     const heading: string = `${t("step")} ${stepNo}`

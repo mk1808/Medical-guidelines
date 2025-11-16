@@ -15,7 +15,7 @@ const NavBar = (): JSX.Element => {
                     <Box marginEnd="auto">
                         <Logo />
                     </Box>
-                    <MgLink title={t("flowList")} path="/flowList" />
+                    <MgLink title={t("flowList")} path="/flowList/user" />
                     <MgLink title={t("treatmentHistory")} path="/treatmentHistory" />
                     <LoggedUser />
                 </Flex>

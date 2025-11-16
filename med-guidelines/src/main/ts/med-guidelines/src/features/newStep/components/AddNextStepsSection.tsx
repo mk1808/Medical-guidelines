@@ -4,8 +4,10 @@ import { StepSummaryNextStepsActions } from "@/features/stepSummary/components/S
 import type { MgTableColumn, Step } from "@/types/interfaces";
 import { formatDate } from "@/utils/dateUtils";
 import { Button, Center, Stack } from "@chakra-ui/react";
-import { useMemo, type JSX } from "react";
+import { useMemo, useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import { AddNextStepDialog } from "./AddNextStepDialog";
+import { useRouterNavigate } from "@/hooks";
 
 interface AddNextStepsSectionProps {
     placeholder?: string;
@@ -14,8 +16,10 @@ interface AddNextStepsSectionProps {
 export const AddNextStepsSection = ({ placeholder }: AddNextStepsSectionProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const click = (item: Step) => console.log(item)
     const { getSteps } = useSteps();
+    const [isAddNextStepDialogOpen, setAddNextStepDialogOpen] = useState<boolean>(false);
 
     const nextSteps = getSteps().slice(0, 3);
 
@@ -26,10 +30,10 @@ export const AddNextStepsSection = ({ placeholder }: AddNextStepsSectionProps): 
         { name: "conditions", key: "conditions", render: (item: Step) => renderConditions(item) },
         { name: "actions", key: "actions", render: renderActionButtons }
     ], []);
-
-    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("open" + item.id) }
+ 
+    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("open" + item.id); navigate("stepSummary") }
     const deleteF = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("delete" + item.id) }
-    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("edit" + item.id) }
+    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("edit" + item.id); navigate("newStep") }
 
 
     return (
@@ -61,7 +65,8 @@ export const AddNextStepsSection = ({ placeholder }: AddNextStepsSectionProps): 
     function renderAddButton() {
         return (
             <Center px="5">
-                <Button variant="solid">{t("addNextStep")}</Button>
+                <Button variant="solid" onClick={() => setAddNextStepDialogOpen(true)}>{t("addNextStep")}</Button>
+                <AddNextStepDialog isOpen={isAddNextStepDialogOpen} dialogOpenChange={setAddNextStepDialogOpen} />
             </Center>
         )
 

@@ -1,4 +1,5 @@
 import { MgTable } from "@/components/ui";
+import { useRouterNavigate } from "@/hooks";
 import type { MgTableColumn, TreatmentHistory } from "@/types/interfaces";
 import { formatDate } from "@/utils/dateUtils";
 import { Box } from "@chakra-ui/react";
@@ -12,8 +13,9 @@ interface TreatmentHistoryListProps {
 export const TreatmentHistoryList = ({ placeholder }: TreatmentHistoryListProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const heading = t("treatmentHistoryList");
-    const click = (item: TreatmentHistory) => console.log(item);
+    const click = (item: TreatmentHistory) => navigate("treatmentSummaryAfterSave");
 
     const tableColumns: MgTableColumn<TreatmentHistory>[] = [
         { name: "disease", key: "disease" },
