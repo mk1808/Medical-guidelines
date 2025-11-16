@@ -36,6 +36,7 @@ import type { ActionButtonProps } from "@/types/interfaces";
 import TableLayout from "@/components/layouts/TableLayout";
 import { useRouterNavigate } from "@/hooks";
 import { TestDialog } from "@/features/auth";
+import { AddNextStepDialog } from "@/features/newStep/components/AddNextStepDialog";
 
 
 
@@ -80,6 +81,7 @@ const TestPage = (): JSX.Element => {
     const [inputValue, setInputValue] = useState<string>();
 
     const [dialogIsOpen, setDialogIsOpen] = useState<boolean>(false);
+    const [isAddNextStepDialogOpen, setAddNextStepDialogOpen] = useState<boolean>(false);
 
     return (
         <div>
@@ -93,10 +95,15 @@ const TestPage = (): JSX.Element => {
             <MgText text={t('welcome')} size='lg' />
             <MgText text={t('welcome')} />
 
-            <TestDialog isOpen={dialogIsOpen} dialogOpenChange={setDialogIsOpen}/>
-            <Button onClick={()=>setDialogIsOpen(true)}>test open dialog</Button>
+            <TestDialog isOpen={dialogIsOpen} dialogOpenChange={setDialogIsOpen} />
+            <Button onClick={() => setDialogIsOpen(true)}>test open dialog</Button>
 
             <TestDialog ><Button>Click me</Button></TestDialog>
+
+            <Box marginY="50px">
+                <AddNextStepDialog isOpen={isAddNextStepDialogOpen} dialogOpenChange={setAddNextStepDialogOpen} />
+                <Button onClick={() => setAddNextStepDialogOpen(true)}>Open AddNextStepDialog</Button>
+            </Box>
 
             <Box marginY="50px" w="1/2" marginX="auto">
                 <MgInput label="Input value" placeholder="Placeholder" value={inputValue} onValueChange={setInputValue} />

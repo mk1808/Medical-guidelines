@@ -2,11 +2,12 @@ import { MgCard, MgDataList } from "@/components/ui";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { formCardExternalHeading } from "@/utils/cardUtils";
 import { Box } from "@chakra-ui/react";
-import { useMemo, type JSX } from "react";
+import { useMemo, useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { TreatmentAccordionElement } from "./TreatmentAccordionElement";
 import { formatDate } from "@/utils/dateUtils";
 import { useParams } from "react-router";
+import { SaveTreatmentDialog } from "./SaveTreatmentDialog";
 
 interface TreatmentSummaryCardProps {
     placeholder?: string;
@@ -17,6 +18,7 @@ export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps)
     const { t } = useTranslation();
     const { afterSave } = useParams();
     const isAfterSave: boolean = afterSave === "afterSave";
+    const [isSaveTreatmentDialogOpen, setSaveTreatmentDialogOpen] = useState<boolean>(false);
 
     const heading = t("treatmentSummary");
     const flowName = "X";
@@ -33,12 +35,15 @@ export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps)
     ], [])
 
     function getActionButtons() {
-        const buttons: ActionButtonProps[] = [
-            { onClick: () => console.log("close"), title: t("close") },
-        ]
-        if (!isAfterSave) {
-            buttons.unshift(
-                { onClick: () => console.log("prev"), title: t("prev"), variant: "outline" }
+        const buttons: ActionButtonProps[] = [];
+        if (isAfterSave) {
+            buttons.push(
+                { onClick: () => console.log("close"), title: t("close") }
+            )
+        } else {
+            buttons.push(
+                { onClick: () => console.log("prev"), title: t("prev"), variant: "outline" },
+                { onClick: () => setSaveTreatmentDialogOpen(true), title: t("save") }
             );
         }
         return buttons;
@@ -53,6 +58,7 @@ export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps)
             externalHeadingAdditionalInfo={renderExternalHeadingAdditionalInfo()}
         >
             {renderContent()}
+            <SaveTreatmentDialog isOpen={isSaveTreatmentDialogOpen} dialogOpenChange={setSaveTreatmentDialogOpen} />
         </MgCard>
     )
 
