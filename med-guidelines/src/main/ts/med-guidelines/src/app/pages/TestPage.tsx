@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { useRef, type JSX } from "react";
 import { useState } from 'react'
 import reactLogo from './../../assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -79,6 +79,8 @@ const TestPage = (): JSX.Element => {
 
     const [inputValue, setInputValue] = useState<string>();
 
+    const [dialogIsOpen, setDialogIsOpen] = useState<boolean>(false);
+
     return (
         <div>
             <MgHeading text={t('welcome')} size='sm' />
@@ -91,9 +93,10 @@ const TestPage = (): JSX.Element => {
             <MgText text={t('welcome')} size='lg' />
             <MgText text={t('welcome')} />
 
-            <TestDialog/>
+            <TestDialog isOpen={dialogIsOpen} dialogOpenChange={setDialogIsOpen}/>
+            <Button onClick={()=>setDialogIsOpen(true)}>test open dialog</Button>
 
-            <TestDialog><Button>Click me</Button></TestDialog>
+            <TestDialog ><Button>Click me</Button></TestDialog>
 
             <Box marginY="50px" w="1/2" marginX="auto">
                 <MgInput label="Input value" placeholder="Placeholder" value={inputValue} onValueChange={setInputValue} />

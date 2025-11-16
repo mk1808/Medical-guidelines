@@ -1,18 +1,29 @@
 
 import MgDialog from "@/components/ui/MgDialog";
+import type { callbackFn } from "@/types/types";
 import { Button, useDialog } from "@chakra-ui/react";
-import { type JSX, type ReactNode } from "react";
+import { useEffect, type JSX, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 
 interface TestDialogProps {
-    children?: ReactNode
+    children?: ReactNode,
+    isOpen?: boolean,
+    dialogOpenChange?: callbackFn<boolean>
 }
 
-export const TestDialog = ({ children }: TestDialogProps): JSX.Element => {
+export const TestDialog = ({ children, isOpen = false, dialogOpenChange }: TestDialogProps): JSX.Element => {
 
     const { t } = useTranslation();
     const title = t('welcome');
     const dialog = useDialog();
+
+    useEffect(() => {
+        dialogOpenChange?.(dialog.open)
+    }, [dialog.open]);
+
+    useEffect(() => {
+        dialog.setOpen(isOpen)
+    }, [isOpen])
 
     const save = () => { console.log('saved'); dialog.setOpen(false); }
     return (
