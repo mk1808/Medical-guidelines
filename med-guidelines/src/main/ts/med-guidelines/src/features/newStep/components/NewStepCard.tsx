@@ -3,6 +3,8 @@ import type { ActionButtonProps } from "@/types/interfaces";
 import { Center, Stack } from "@chakra-ui/react";
 import { useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import { AddParametersSection } from "./AddParametersSection";
+import { AddNextStepsSection } from "./AddNextStepsSection";
 
 interface NewStepCardProps {
     placeholder?: string;
@@ -15,11 +17,10 @@ export const NewStepCard = ({ placeholder }: NewStepCardProps): JSX.Element => {
     const heading: string = `${t("step")} ${stepNo}`
     const [stepName, setStepName] = useState<string>();
     const [stepDescription, setStepDescription] = useState<string>();
-    const [flowVersion, setFlowVersion] = useState<string>();
 
     const buttons: ActionButtonProps[] = [
         { onClick: () => console.log("cancel"), title: t("cancel"), variant: "outline" },
-        { onClick: () => console.log("next", stepName, stepDescription, flowVersion), title: t("next") },
+        { onClick: () => console.log("next", stepName, stepDescription), title: t("next") },
     ];
 
     return (
@@ -36,7 +37,9 @@ export const NewStepCard = ({ placeholder }: NewStepCardProps): JSX.Element => {
                     <MgTextarea label={t("stepDescription")} value={stepDescription} onValueChange={setStepDescription} />
                     <MgCheckbox text={t("isLastStep")} />
                     <MgHeading text={t('parameters')} size='md' withSeparator />
+                    <AddParametersSection/>
                     <MgHeading text={t('nextSteps')} size='md' withSeparator />
+                    <AddNextStepsSection/>
                 </Stack>
             </Center>
         )
