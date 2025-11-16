@@ -52,5 +52,6 @@
   "stepId": "Id",
   "conditions": "Warunki",
   "flowSummary": "Podsumowanie flow",
-  "steps": "Kroki"
+  "steps": "Kroki",
+  "saveTreatmentSummary": "Zapisz wypełnienie flow"
 }

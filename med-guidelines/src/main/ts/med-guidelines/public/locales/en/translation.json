@@ -52,5 +52,6 @@
   "stepId": "Id",
   "conditions": "Conditions",
   "flowSummary": "Flow summary",
-  "steps": "Steps"
+  "steps": "Steps",
+  "saveTreatmentSummary": "Save filled flow"
 }
