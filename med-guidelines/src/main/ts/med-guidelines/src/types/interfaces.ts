@@ -52,7 +52,8 @@ export interface Step {
     name: string;
     author?: string;
     parameters?: any[];
-    nextSteps?: any[];
+    nextSteps?: Step[];
+    isLastStep?: boolean;
 }
 
 export interface TreatmentHistory {
