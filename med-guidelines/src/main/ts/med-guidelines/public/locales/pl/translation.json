@@ -54,5 +54,11 @@
   "flowSummary": "Podsumowanie flow",
   "steps": "Kroki",
   "newStep": "Nowy krok",
-  "isLastStep": "Ostatni krok"
+  "isLastStep": "Ostatni krok",
+  "noParamsAdded": "Brak dodanych parametrów",
+  "addParam": "Dodaj parametr",
+  "paramName": "Nazwa parametru",
+  "paramValue": "Wartość parametru",
+  "addValue": "Dodaj wartość parametru",
+  "addNextStep": "Dodaj następny krok",
 }

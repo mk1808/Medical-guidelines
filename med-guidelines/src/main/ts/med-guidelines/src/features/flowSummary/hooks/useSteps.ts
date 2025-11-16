@@ -9,12 +9,14 @@ export const useSteps = () => {
             parameters: [],
             nextSteps: ["2", "3"],
             isLastStep: false,
+            conditions: [{ param: "param 1", value: "value 2" }] 
         }, {
             id: "2",
             name: "sit amet urna dignissim",
             parameters: [],
             nextSteps: ["5", "6", "9"],
             isLastStep: false,
+            conditions: [{ param: "param 1", value: "value 1" }] 
         }, {
             id: "3",
             name: "eget mattis eros pulvinar",
