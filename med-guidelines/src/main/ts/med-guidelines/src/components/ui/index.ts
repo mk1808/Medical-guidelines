@@ -13,4 +13,5 @@ export * from "./MgSelect.tsx";
 export * from "./MgInput.tsx";
 export * from "./MgList.tsx";
 export * from "./MgCheckbox.tsx";
-export * from "./MgIconButton.tsx"
+export * from "./MgIconButton.tsx";
+export * from "./MgDialog.tsx"
