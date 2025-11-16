@@ -48,6 +48,8 @@
   "stepName": "Nazwa kroku",
   "stepDescription": "Opis kroku",
   "parameters": "Parametry",
+  "parameter": "Parametr",
+  "parameterValue": "Wartość parametru",
   "nextSteps": "Kolejne kroki",
   "stepId": "Id",
   "conditions": "Warunki",
@@ -61,4 +63,13 @@
   "paramValue": "Wartość parametru",
   "addValue": "Dodaj wartość parametru",
   "addNextStep": "Dodaj następny krok",
+  "saveTreatmentSummary": "Zapisz wypełnienie flow",
+  "addNextStep": "Dodaj kolejny krok",
+  "addNextNewStep": "Dodaj kolejny krok - utwórz nowy",
+  "addNextExistingStep": "Dodaj kolejny krok - wybierz istniejący",
+  "addNextStepConditions": "Dodaj kolejny krok - warunki przejścia",
+  "addNextNewStepButton": "Utwórz nowy",
+  "addNextExistingStepButton": "Wybierz istniejący",
+  "selectExistingStep": "Wybierz istniejący krok",
+  "addNextParameter": "Kolejny parametr"
 }

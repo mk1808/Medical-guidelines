@@ -48,6 +48,8 @@
   "stepName": "Step name",
   "stepDescription": "Step description",
   "parameters": "Parameters",
+  "parameter": "Parameter",
+  "parameterValue": "Parameter value",
   "nextSteps": "Next steps",
   "stepId": "Id",
   "conditions": "Conditions",
@@ -60,5 +62,14 @@
   "paramName": "Parameter name",
   "paramValue": "Parameter value",
   "addValue": "Add parameter value",
-  "addNextStep": "Add next step"
+  "addNextStep": "Add next step",
+  "saveTreatmentSummary": "Save filled flow",
+  "addNextStep": "Add next step",
+  "addNextNewStep": "Add next step - create new",
+  "addNextExistingStep": "Add next step - select from existing",
+  "addNextStepConditions": "Add next step - select conditions",
+  "addNextNewStepButton": "Create new",
+  "addNextExistingStepButton": "Select from existing",
+  "selectExistingStep": "Select existing step",
+  "addNextParameter": "Next parameter"
 }
