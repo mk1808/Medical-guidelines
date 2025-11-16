@@ -1,33 +1,29 @@
 
 import MgDialog from "@/components/ui/MgDialog";
-import type { Flow } from "@/types/interfaces";
-import type { callbackFn } from "@/types/types";
-import { Button } from "@chakra-ui/react";
-import { useState, type JSX } from "react";
+import { Button, useDialog } from "@chakra-ui/react";
+import { type JSX, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 
 interface TestDialogProps {
-    edit: callbackFn<Flow>;
-    open1: callbackFn<Flow>;
+    children?: ReactNode
 }
 
-export const TestDialog = ({ edit, open1 }: TestDialogProps): JSX.Element => {
+export const TestDialog = ({ children }: TestDialogProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const title = t('welcome');
+    const dialog = useDialog();
 
-    const title = 'Dialog Title';
-    const [open, setOpen] = useState(false);
-
+    const save = () => { console.log('saved'); dialog.setOpen(false); }
     return (
         <MgDialog
-            open={open}
-            setOpen={setOpen}
+            dialog={dialog}
             title={title}
             body={renderBody}
             saveButton={renderSaveButton}
             triggerButton={renderTriggerButton}
         />
-    );
+    )
 
     function renderBody() {
         return (
@@ -35,18 +31,22 @@ export const TestDialog = ({ edit, open1 }: TestDialogProps): JSX.Element => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua.
             </p>
-        );
-    };
+        )
+    }
 
     function renderSaveButton() {
-        return <Button onClick={() => {console.log('saved'); setOpen(false)}}>Save</Button>;
-    };
+        return <Button onClick={save}>Save</Button>
+
+    }
 
     function renderTriggerButton() {
+        if (children) {
+            return children;
+        }
         return (
-            <Button variant="outline" size="sm">
+            <Button>
                 Open Dialog
             </Button>
-        );
-    };
-};
+        )
+    }
+}

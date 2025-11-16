@@ -93,6 +93,8 @@ const TestPage = (): JSX.Element => {
 
             <TestDialog/>
 
+            <TestDialog><Button>Click me</Button></TestDialog>
+
             <Box marginY="50px" w="1/2" marginX="auto">
                 <MgInput label="Input value" placeholder="Placeholder" value={inputValue} onValueChange={setInputValue} />
                 {inputValue}

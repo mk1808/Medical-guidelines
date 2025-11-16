@@ -1,6 +1,6 @@
-import type { renderFn, voidFn } from '@/types/types';
-import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react';
-import { useState, type Dispatch, type JSX, type ReactNode, type SetStateAction } from "react";
+import type { renderFn } from '@/types/types';
+import { Button, CloseButton, Dialog, Portal, type UseDialogReturn } from '@chakra-ui/react';
+import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
 
 interface MgDialogProps {
@@ -8,16 +8,15 @@ interface MgDialogProps {
     triggerButton: renderFn,
     saveButton: renderFn,
     body: renderFn,
-    open:boolean,
-    setOpen:Dispatch<SetStateAction<boolean>>
+    dialog: UseDialogReturn
 }
 
-const MgDialog = ({ title, triggerButton, saveButton, body, open, setOpen }: MgDialogProps): JSX.Element => {
+const MgDialog = ({ title, triggerButton, saveButton, body, dialog }: MgDialogProps): JSX.Element => {
+
     const { t } = useTranslation();
 
-
     return (
-        <Dialog.Root lazyMount open={open} onOpenChange={(e) => setOpen(e.open)}>
+        <Dialog.RootProvider lazyMount value={dialog} >
             <Dialog.Trigger asChild>{renderDialogTrigger()}</Dialog.Trigger>
             <Portal>
                 <Dialog.Backdrop />
@@ -32,7 +31,7 @@ const MgDialog = ({ title, triggerButton, saveButton, body, open, setOpen }: MgD
                     </Dialog.Content>
                 </Dialog.Positioner>
             </Portal>
-        </Dialog.Root>
+        </Dialog.RootProvider>
     )
 
     function renderDialogTrigger() {
@@ -55,7 +54,7 @@ const MgDialog = ({ title, triggerButton, saveButton, body, open, setOpen }: MgD
         return (
             <Dialog.Footer>
                 <Dialog.ActionTrigger asChild>
-                    <Button variant="outline">Cancel</Button>
+                    <Button variant="outline">{t("cancel")}</Button>
                 </Dialog.ActionTrigger>
                 {saveButton()}
             </Dialog.Footer>
