@@ -52,5 +52,7 @@
   "stepId": "Id",
   "conditions": "Conditions",
   "flowSummary": "Flow summary",
-  "steps": "Steps"
+  "steps": "Steps",
+  "newStep": "New step",
+  "isLastStep": "Last step"
 }

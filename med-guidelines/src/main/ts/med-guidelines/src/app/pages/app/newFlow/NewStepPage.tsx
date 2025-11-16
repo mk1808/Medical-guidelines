@@ -1,4 +1,5 @@
 import CardLayout from "@/components/layouts/CardLayout";
+import { NewStepCard } from "@/features/newStep";
 import { Box } from "@chakra-ui/react";
 import { type JSX } from "react";
 interface NewStepPageProps {
@@ -8,8 +9,7 @@ interface NewStepPageProps {
 const NewStepPage = ({ placeholder }: NewStepPageProps): JSX.Element => (
     <CardLayout>
         <Box>
-            <h1>NewStepPage component</h1>
-            {placeholder}
+            <NewStepCard />
         </Box>
     </CardLayout>
 );
