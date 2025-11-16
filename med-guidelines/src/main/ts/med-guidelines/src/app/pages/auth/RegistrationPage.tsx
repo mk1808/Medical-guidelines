@@ -1,5 +1,6 @@
 import AuthLayout from "@/components/layouts/AuthLayout";
 import { MgCard, MgInput } from "@/components/ui";
+import { useRouterNavigate } from "@/hooks";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { Stack } from "@chakra-ui/react";
 import { useMemo, useState, type JSX } from "react";
@@ -11,12 +12,13 @@ interface RegistrationPageProps {
 
 const RegistrationPage = ({ placeholder }: RegistrationPageProps): JSX.Element => {
 	const { t } = useTranslation();
+	const { navigate } = useRouterNavigate();
 
 	const [login, setLogin] = useState<string>();
 	const [password, setPassword] = useState<string>();
 	const [confirmPassword, setConfirmPassword] = useState<string>();
 	const buttons: ActionButtonProps[] = useMemo(() => [
-		{ onClick: () => console.log("register"), title: t("registerAction") },
+		{ onClick: () => navigate("login"), title: t("registerAction") },
 	], [])
 
 	return (

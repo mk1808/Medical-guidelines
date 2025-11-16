@@ -8,6 +8,7 @@ import { TreatmentAccordionElement } from "./TreatmentAccordionElement";
 import { formatDate } from "@/utils/dateUtils";
 import { useParams } from "react-router";
 import { SaveTreatmentDialog } from "./SaveTreatmentDialog";
+import { useRouterNavigate } from "@/hooks";
 
 interface TreatmentSummaryCardProps {
     placeholder?: string;
@@ -16,6 +17,7 @@ interface TreatmentSummaryCardProps {
 export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const { afterSave } = useParams();
     const isAfterSave: boolean = afterSave === "afterSave";
     const [isSaveTreatmentDialogOpen, setSaveTreatmentDialogOpen] = useState<boolean>(false);
@@ -27,7 +29,7 @@ export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps)
     const externalHeading = formCardExternalHeading({ flowName, disease, version });
     const treatmentSummaryText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "
 
-    const actionButtons = useMemo(getActionButtons, [])
+    const actionButtons = useMemo(getActionButtons, [isAfterSave])
 
     const externalHeadingAdditionalInfoData = useMemo(() => [
         { label: t("patientId"), value: "05/08/2025" },
@@ -38,11 +40,11 @@ export const TreatmentSummaryCard = ({ placeholder }: TreatmentSummaryCardProps)
         const buttons: ActionButtonProps[] = [];
         if (isAfterSave) {
             buttons.push(
-                { onClick: () => console.log("close"), title: t("close") }
+                { onClick: () => navigate("treatmentHistory"), title: t("close") }
             )
         } else {
             buttons.push(
-                { onClick: () => console.log("prev"), title: t("prev"), variant: "outline" },
+                { onClick: () => navigate("back"), title: t("prev"), variant: "outline" },
                 { onClick: () => setSaveTreatmentDialogOpen(true), title: t("save") }
             );
         }

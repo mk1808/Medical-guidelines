@@ -26,11 +26,15 @@ export const ProposedTreatmentCard = ({ placeholder }: ProposedTreatmentCardProp
 
     const buttons: ActionButtonProps[] = [
         { onClick: navigateBack, title: t("prev"), variant: "outline" },
-        { onClick: () => console.log("close"), title: t("close") },
+        { onClick: navigateTreatmentSummary, title: t("flowSummary") },
     ]
 
     function navigateBack() {
         navigate("back")
+    }
+
+    function navigateTreatmentSummary() {
+        navigate("treatmentSummary")
     }
 
     const newText: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed vehicula urna. Quisque tincidunt nibh quis velit ultricies, et semper arcu eleifend. Sed sed mattis purus. Mauris semper nisl id ligula gravida varius. "

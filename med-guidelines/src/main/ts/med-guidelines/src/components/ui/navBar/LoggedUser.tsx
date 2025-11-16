@@ -4,10 +4,12 @@ import { ChevronDown, User } from 'lucide-react';
 import { Button, HStack, Menu, Portal } from "@chakra-ui/react";
 import { getCssVar } from "@/config/themeConfig";
 import { useTranslation } from "react-i18next";
+import { useRouterNavigate } from "@/hooks";
 
 
 const LoggedUser = (): JSX.Element => {
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
 
     const currentUser = "exampleUser@gmail.com";
     return (
@@ -27,7 +29,7 @@ const LoggedUser = (): JSX.Element => {
                 <Portal>
                     <Menu.Positioner colorPalette="primary">
                         <Menu.Content>
-                            <Menu.Item value="logout">{t("logout")}</Menu.Item>
+                            <Menu.Item value="logout" onClick={() => navigate("login")}>{t("logout")}</Menu.Item>
                         </Menu.Content>
                     </Menu.Positioner>
                 </Portal>

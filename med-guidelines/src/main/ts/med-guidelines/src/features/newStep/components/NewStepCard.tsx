@@ -5,6 +5,7 @@ import { useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { AddParametersSection } from "./AddParametersSection";
 import { AddNextStepsSection } from "./AddNextStepsSection";
+import { useRouterNavigate } from "@/hooks";
 
 interface NewStepCardProps {
     placeholder?: string;
@@ -13,14 +14,15 @@ interface NewStepCardProps {
 export const NewStepCard = ({ placeholder }: NewStepCardProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const stepNo = 1;
     const heading: string = `${t("step")} ${stepNo}`
     const [stepName, setStepName] = useState<string>();
     const [stepDescription, setStepDescription] = useState<string>();
 
     const buttons: ActionButtonProps[] = [
-        { onClick: () => console.log("cancel"), title: t("cancel"), variant: "outline" },
-        { onClick: () => console.log("next", stepName, stepDescription), title: t("next") },
+        { onClick: () => navigate("back"), title: t("prev"), variant: "outline" },
+        { onClick: () => { console.log("next", stepName, stepDescription); navigate("stepSummary")}, title: t("next") },
     ];
 
     return (

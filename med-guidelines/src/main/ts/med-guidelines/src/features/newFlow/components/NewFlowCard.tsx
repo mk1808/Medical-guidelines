@@ -1,4 +1,5 @@
 import { MgCard, MgInput } from "@/components/ui";
+import { useRouterNavigate } from "@/hooks";
 import type { ActionButtonProps } from "@/types/interfaces";
 import { Center, Stack } from "@chakra-ui/react";
 import { useState, type JSX } from "react";
@@ -11,13 +12,14 @@ interface NewFlowCardProps {
 export const NewFlowCard = ({ placeholder }: NewFlowCardProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
     const [flowName, setFlowName] = useState<string>();
     const [disease, setDisease] = useState<string>();
     const [flowVersion, setFlowVersion] = useState<string>();
 
     const buttons: ActionButtonProps[] = [
-        { onClick: () => console.log("cancel"), title: t("cancel"), variant: "outline" },
-        { onClick: () => console.log("next", flowName, disease, flowVersion), title: t("next") },
+        { onClick: () => navigate("flowListAdmin"), title: t("cancel"), variant: "outline" },
+        { onClick: () => { console.log("next", flowName, disease, flowVersion); navigate("newStep") }, title: t("next") },
     ];
 
     return (

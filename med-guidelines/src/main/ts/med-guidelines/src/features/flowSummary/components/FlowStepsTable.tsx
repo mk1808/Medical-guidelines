@@ -2,6 +2,7 @@ import { MgTable } from "@/components/ui";
 import type { Step, MgTableColumn } from "@/types/interfaces";
 import { useMemo, type JSX } from "react";
 import { FlowStepActions } from "./FlowStepActions";
+import { useRouterNavigate } from "@/hooks";
 
 interface FlowStepsTableProps {
     steps: Step[];
@@ -9,6 +10,7 @@ interface FlowStepsTableProps {
 
 export const FlowStepsTable = ({ steps }: FlowStepsTableProps): JSX.Element => {
 
+    const { navigate } = useRouterNavigate();
     const click = (item: Step) => console.log(item)
 
     const columns: MgTableColumn<Step>[] = useMemo(() => [
@@ -16,8 +18,8 @@ export const FlowStepsTable = ({ steps }: FlowStepsTableProps): JSX.Element => {
         { name: "actions", key: "actions", render: renderActionButtons }
     ], []);
 
-    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("open" + item.id) }
-    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("edit" + item.id) }
+    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("open" + item.id); navigate("stepSummary") }
+    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("edit" + item.id); navigate("newStep")  }
 
     return (
         <MgTable

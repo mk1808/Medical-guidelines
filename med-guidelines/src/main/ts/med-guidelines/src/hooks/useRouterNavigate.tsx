@@ -12,12 +12,14 @@ export const useRouterNavigate = () => {
             case "registration": return "/auth/registration";
             case "treatmentHistory": return "/treatmentHistory";
             case "treatmentSummary": return "/treatmentSummary";
+            case "treatmentSummaryAfterSave": return "/treatmentSummary/afterSave";
             case "newFlow": return "/newFlow";
             case "newStep": return "/newStep";
             case "stepSummary": return "/stepSummary";
             case "flowHistory": return "/flowHistory";
             case "flowSummary": return "/flowSummary";
-            case "flowList": return "/flowList";
+            case "flowList": return "/flowList/user";
+            case "flowListAdmin": return "/flowList/admin";
             case "flowStep": return `/flowStep/${additionalParams.stepId}`;
             case "proposedTreatment": return "/proposedTreatment";
             case "test": return "/test";

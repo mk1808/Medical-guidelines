@@ -1,4 +1,5 @@
 import { MgActionButtons, MgTable } from "@/components/ui";
+import { useRouterNavigate } from "@/hooks";
 import type { ActionButtonProps, Flow, MgTableColumn } from "@/types/interfaces";
 import { formatDate } from "@/utils/dateUtils";
 import { Box } from "@chakra-ui/react";
@@ -12,6 +13,7 @@ interface FlowHistoryProps {
 export const FlowHistory = ({ placeholder }: FlowHistoryProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
 
     const heading = t("flowModificationHistory");
     const click = (item: Flow) => console.log(item)
@@ -29,7 +31,7 @@ export const FlowHistory = ({ placeholder }: FlowHistoryProps): JSX.Element => {
     ];
 
     const buttons: ActionButtonProps[] = [
-        { onClick: () => console.log("back"), title: t("back"), variant: "solid" },
+        { onClick: () => navigate("back"), title: t("back"), variant: "solid" },
     ]
 
     return (

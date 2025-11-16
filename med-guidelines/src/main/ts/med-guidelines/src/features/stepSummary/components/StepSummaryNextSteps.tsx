@@ -4,6 +4,7 @@ import { formatDate } from "@/utils/dateUtils";
 import { useMemo, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { StepSummaryNextStepsActions } from "./StepSummaryNextStepsActions";
+import { useRouterNavigate } from "@/hooks";
 
 interface StepSummaryNextStepsProps {
     step?: any;
@@ -12,6 +13,7 @@ interface StepSummaryNextStepsProps {
 export const StepSummaryNextSteps = ({ step }: StepSummaryNextStepsProps): JSX.Element => {
 
     const { t } = useTranslation();
+    const { navigate } = useRouterNavigate();
 
     const click = (item: Step) => console.log(item)
 
@@ -23,9 +25,9 @@ export const StepSummaryNextSteps = ({ step }: StepSummaryNextStepsProps): JSX.E
         { name: "actions", key: "actions", render: renderActionButtons }
     ], []);
 
-    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("open" + item.id) }
+    const open = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("open" + item.id); navigate("stepSummary") }
     const deleteF = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("delete" + item.id) }
-    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("edit" + item.id) }
+    const edit = (event: React.MouseEvent<HTMLButtonElement>, item: Step) => { event.stopPropagation(); console.log("edit" + item.id); navigate("newStep") }
 
     return (
         <MgTable
