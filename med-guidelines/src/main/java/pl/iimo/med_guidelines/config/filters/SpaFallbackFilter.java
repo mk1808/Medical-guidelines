@@ -1,4 +1,4 @@
-package pl.iimo.med_guidelines.config;
+package pl.iimo.med_guidelines.config.filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
