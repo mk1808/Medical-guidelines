@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "buildSkipErrors": "vite build",
     "lint": "eslint .",
     "chakra:rebuildColors": "npx @chakra-ui/cli snippet add ColorMode",
     "chakra:rebuildTheme": "npx @chakra-ui/cli typegen src/config/themeConfig.ts",
